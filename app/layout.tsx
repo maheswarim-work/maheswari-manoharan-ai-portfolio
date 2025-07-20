@@ -17,18 +17,16 @@ export const metadata: Metadata = {
   description: "Personal portfolio of Maheswari Manoharan - Technology Professional with 12+ years of expertise in cloud technologies, software development, and data platforms.",
   keywords: "Maheswari Manoharan, Technology Professional, Cloud Technologies, AWS, Azure, Software Development, Data Engineering",
   authors: [{ name: "Maheswari Manoharan" }],
+  manifest: '/manifest.json',
   openGraph: {
     title: "Maheswari Manoharan - Technology Professional",
     description: "Personal portfolio showcasing expertise in cloud technologies, software development, and data platforms.",
     type: "website",
   },
   icons: {
-    icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/icon.svg', type: 'image/svg+xml' }
-    ],
+    icon: '/favicon.svg',
     shortcut: '/favicon.svg',
-    apple: '/icon.svg',
+    apple: '/apple-icon.png',
   },
 };
 
