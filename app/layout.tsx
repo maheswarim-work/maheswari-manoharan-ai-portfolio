@@ -19,9 +19,25 @@ export const metadata: Metadata = {
   authors: [{ name: "Maheswari Manoharan" }],
   manifest: '/manifest.json',
   openGraph: {
-    title: "Maheswari Manoharan - Technology Professional",
-    description: "Personal portfolio showcasing expertise in cloud technologies, software development, and data platforms.",
+    title: "Maheswari Manoharan - AI-Powered Technology Portfolio",
+    description: "Software Engineering Manager specializing in modern cloud technologies powered with artificial intelligence. 12+ years expertise in AWS, Azure, and enterprise solutions.",
     type: "website",
+    url: "https://maheswari-manoharan.ai",
+    siteName: "Maheswari Manoharan Portfolio",
+    images: [
+      {
+        url: "https://maheswari-manoharan.ai/og-image.svg",
+        width: 1200,
+        height: 630,
+        alt: "Maheswari Manoharan - Software Engineering Manager",
+      }
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Maheswari Manoharan - AI-Powered Technology Portfolio",
+    description: "Software Engineering Manager specializing in modern cloud technologies powered with artificial intelligence.",
+    images: ["https://maheswari-manoharan.ai/og-image.svg"],
   },
   icons: {
     icon: '/favicon.svg',
