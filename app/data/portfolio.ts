@@ -85,8 +85,8 @@ export const portfolioData = {
   ],
   skills: {
     cloud: ["AWS", "Azure", "Terraform", "CloudFormation", "Lambda", "EC2", "S3", "DynamoDB", "RDS", "EventBridge", "SQS", "SNS", "Elastic Beanstalk", "SAM"],
-    development: ["Python", "Java", "JavaScript", "TypeScript", "Ruby", "Angular", "Spring Boot", "Spring Framework", "Ruby on Rails", "REST APIs", "SOAP"],
-    data: ["Databricks", "MySQL", "PostgreSQL", "Oracle", "SQL Server", "DynamoDB", "Aurora", "AS400", "CDC"],
+    development: ["Python", "Java", "Angular", "Spring Boot", "Spring Framework", "REST APIs", "SOAP"],
+    data: ["Databricks", "Snowflake", "MySQL", "PostgreSQL", "Oracle", "SQL Server", "DynamoDB", "Aurora", "AS400", "CDC"],
     tools: ["Git", "Jenkins", "GitHub Actions", "Docker", "Maven", "pytest", "JUnit", "Selenium", "JMeter", "Cucumber", "CloudWatch", "Datadog", "Splunk"],
     methodologies: ["Agile", "SAFe", "Kanban", "DevOps", "Microservices", "Event-Driven Architecture", "API Design", "MLOps"]
   }
