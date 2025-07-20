@@ -15,7 +15,7 @@ NC='\033[0m' # No Color
 
 # Configuration
 RESOURCE_GROUP="maheswari-portfolio-rg"
-LOCATION="eastus"
+LOCATION="eastus2"
 STATIC_WEB_APP_NAME="maheswari-portfolio"
 GITHUB_REPO="https://github.com/maheswarim-work/maheswari-manoharan-ai-portfolio"
 BRANCH="main"
