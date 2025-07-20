@@ -22,6 +22,14 @@ export const metadata: Metadata = {
     description: "Personal portfolio showcasing expertise in cloud technologies, software development, and data platforms.",
     type: "website",
   },
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icon.svg', type: 'image/svg+xml' }
+    ],
+    shortcut: '/favicon.svg',
+    apple: '/icon.svg',
+  },
 };
 
 export default function RootLayout({
