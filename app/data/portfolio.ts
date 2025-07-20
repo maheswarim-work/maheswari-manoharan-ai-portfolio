@@ -12,7 +12,7 @@ interface PersonalData {
 export const portfolioData = {
   personal: {
     name: "Maheswari Manoharan",
-    title: "Software Engineering Manager",
+    title: "Software Engineering Manager Specializing In Modern Cloud Technologies Powered With Artificial Intelligence",
     location: "Atlanta Metropolitan Area",
     summary: "As a Software Engineering Manager with a Master's in Computer Science, I bring 12+ years of expertise in cloud technologies, software development, and data platforms. Currently leading API implementation engineering initiatives at Arch Capital Services, with extensive experience in AWS, microservices architecture, and team leadership.",
     email: "maheswarim.work@gmail.com",
