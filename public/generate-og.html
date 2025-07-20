@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate OG Image</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        #preview {
+            background: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+        button {
+            background: #ec4899;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #db2777;
+        }
+    </style>
+</head>
+<body>
+    <h1>Professional OG Image Generator</h1>
+    <canvas id="canvas" width="1200" height="630" style="display: none;"></canvas>
+    <div id="preview">
+        <canvas id="preview-canvas" width="600" height="315" style="max-width: 100%;"></canvas>
+    </div>
+    <button onclick="downloadImage()">Download OG Image (1200x630)</button>
+    <button onclick="copyDataURL()">Copy as Data URL</button>
+    
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const previewCanvas = document.getElementById('preview-canvas');
+        const previewCtx = previewCanvas.getContext('2d');
+        
+        function drawImage() {
+            // Clear canvas
+            ctx.clearRect(0, 0, 1200, 630);
+            
+            // Background gradient
+            const bgGradient = ctx.createLinearGradient(0, 0, 1200, 630);
+            bgGradient.addColorStop(0, '#ffeef8');
+            bgGradient.addColorStop(0.25, '#fff5f9');
+            bgGradient.addColorStop(0.5, '#fff0f7');
+            bgGradient.addColorStop(1, '#ffffff');
+            ctx.fillStyle = bgGradient;
+            ctx.fillRect(0, 0, 1200, 630);
+            
+            // Decorative circles
+            ctx.save();
+            
+            // Top left circle
+            const circle1 = ctx.createRadialGradient(100, 100, 0, 100, 100, 200);
+            circle1.addColorStop(0, 'rgba(244,114,182,0.15)');
+            circle1.addColorStop(1, 'rgba(244,114,182,0)');
+            ctx.fillStyle = circle1;
+            ctx.fillRect(-100, -100, 400, 400);
+            
+            // Bottom right circle
+            const circle2 = ctx.createRadialGradient(1100, 530, 0, 1100, 530, 250);
+            circle2.addColorStop(0, 'rgba(236,72,153,0.15)');
+            circle2.addColorStop(1, 'rgba(236,72,153,0)');
+            ctx.fillStyle = circle2;
+            ctx.fillRect(850, 280, 500, 500);
+            
+            ctx.restore();
+            
+            // Profile circle with initials
+            ctx.save();
+            const profileGradient = ctx.createLinearGradient(540, 80, 660, 200);
+            profileGradient.addColorStop(0, '#f472b6');
+            profileGradient.addColorStop(1, '#ec4899');
+            ctx.fillStyle = profileGradient;
+            ctx.beginPath();
+            ctx.arc(600, 140, 60, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Shadow for profile circle
+            ctx.shadowColor = 'rgba(236,72,153,0.3)';
+            ctx.shadowBlur = 30;
+            ctx.shadowOffsetY = 10;
+            ctx.fill();
+            ctx.restore();
+            
+            // MM initials
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 48px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('MM', 600, 140);
+            
+            // Name with gradient
+            ctx.save();
+            const nameGradient = ctx.createLinearGradient(200, 0, 1000, 0);
+            nameGradient.addColorStop(0, '#ec4899');
+            nameGradient.addColorStop(1, '#f472b6');
+            ctx.fillStyle = nameGradient;
+            ctx.font = '800 64px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('Maheswari Manoharan', 600, 250);
+            ctx.restore();
+            
+            // Title
+            ctx.fillStyle = '#4a5568';
+            ctx.font = '600 32px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('Software Engineering Manager', 600, 310);
+            
+            // Subtitle
+            ctx.fillStyle = '#718096';
+            ctx.font = '24px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.fillText('Specializing in AI-Powered Cloud Technologies', 600, 350);
+            
+            // Tech badges
+            const techs = ['AWS', 'Azure', 'Python', 'AI/ML', 'Terraform', 'Databricks'];
+            const badgeY = 420;
+            const badgeSpacing = 120;
+            const startX = 600 - (techs.length * badgeSpacing) / 2 + 60;
+            
+            techs.forEach((tech, index) => {
+                const x = startX + index * badgeSpacing;
+                
+                // Badge background
+                ctx.fillStyle = 'rgba(236,72,153,0.1)';
+                ctx.strokeStyle = 'rgba(236,72,153,0.2)';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.roundRect(x - 50, badgeY - 20, 100, 40, 20);
+                ctx.fill();
+                ctx.stroke();
+                
+                // Badge text
+                ctx.fillStyle = '#ec4899';
+                ctx.font = '600 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(tech, x, badgeY);
+            });
+            
+            // Experience and certifications
+            const statsY = 500;
+            
+            // Experience
+            ctx.fillStyle = 'rgba(236,72,153,0.15)';
+            ctx.beginPath();
+            ctx.arc(450, statsY, 20, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.fillStyle = '#ec4899';
+            ctx.font = '700 20px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('12+', 450, statsY);
+            
+            ctx.fillStyle = '#4a5568';
+            ctx.font = '20px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText('Years Experience', 480, statsY);
+            
+            // Certifications
+            ctx.fillStyle = 'rgba(236,72,153,0.15)';
+            ctx.beginPath();
+            ctx.arc(700, statsY, 20, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.fillStyle = '#ec4899';
+            ctx.font = '700 20px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('3', 700, statsY);
+            
+            ctx.fillStyle = '#4a5568';
+            ctx.font = '20px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText('Certifications', 730, statsY);
+            
+            // Website URL in a pill
+            ctx.save();
+            ctx.fillStyle = 'white';
+            ctx.shadowColor = 'rgba(0,0,0,0.1)';
+            ctx.shadowBlur = 15;
+            ctx.shadowOffsetY = 4;
+            ctx.beginPath();
+            ctx.roundRect(450, 550, 300, 50, 25);
+            ctx.fill();
+            ctx.restore();
+            
+            // Green dot
+            ctx.fillStyle = '#48bb78';
+            ctx.beginPath();
+            ctx.arc(480, 575, 4, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // URL text
+            ctx.fillStyle = '#2d3748';
+            ctx.font = '600 22px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('maheswari-manoharan.ai', 600, 580);
+        }
+        
+        function updatePreview() {
+            previewCtx.drawImage(canvas, 0, 0, 600, 315);
+        }
+        
+        // Draw the image
+        drawImage();
+        updatePreview();
+        
+        function downloadImage() {
+            const link = document.createElement('a');
+            link.download = 'og-image.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        function copyDataURL() {
+            const dataURL = canvas.toDataURL('image/png');
+            navigator.clipboard.writeText(dataURL).then(() => {
+                alert('Data URL copied to clipboard!');
+            });
+        }
+    </script>
+    
+    <h2>Instructions:</h2>
+    <ol>
+        <li>Click "Download OG Image" to save the image</li>
+        <li>Name it "og-image.png" and save it in the public folder</li>
+        <li>The image will be automatically used for LinkedIn and social media previews</li>
+    </ol>
+</body>
+</html>

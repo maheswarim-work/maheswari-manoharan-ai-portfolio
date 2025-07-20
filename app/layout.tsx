@@ -26,10 +26,11 @@ export const metadata: Metadata = {
     siteName: "Maheswari Manoharan Portfolio",
     images: [
       {
-        url: "https://og-image.vercel.app/**Maheswari%20Manoharan**.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-black.svg&widths=0&heights=0&caption=Software%20Engineering%20Manager%20%7C%20AI-Powered%20Cloud%20Technologies",
+        url: "https://maheswari-manoharan.ai/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Maheswari Manoharan - Software Engineering Manager",
+        alt: "Maheswari Manoharan - Software Engineering Manager | AI-Powered Cloud Technologies",
+        type: "image/png",
       }
     ],
   },
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Maheswari Manoharan - AI-Powered Technology Portfolio",
     description: "Software Engineering Manager specializing in modern cloud technologies powered with artificial intelligence.",
-    images: ["https://og-image.vercel.app/**Maheswari%20Manoharan**.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-black.svg&widths=0&heights=0&caption=Software%20Engineering%20Manager%20%7C%20AI-Powered%20Cloud%20Technologies"],
+    images: ["https://maheswari-manoharan.ai/og-image.png"],
   },
   icons: {
     icon: '/favicon.svg',
