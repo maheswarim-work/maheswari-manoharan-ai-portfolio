@@ -58,7 +58,7 @@ jobs:
           aws cloudformation create-stack \
             --stack-name ${{ env.STACK_NAME }} \
             --template-body file://aws-infrastructure.yml \
-            --parameters ParameterKey=UseCloudFront,ParameterValue=true \
+            --parameters ParameterKey=UseCloudFront,ParameterValue=true ParameterKey=DomainName,ParameterValue=maheswari-manoharan.ai ParameterKey=CertificateArn,ParameterValue=arn:aws:acm:us-east-1:842533763411:certificate/eaeeb898-de0e-4316-90f1-416f48ba3034 \
             --region ${{ env.AWS_REGION }}
 
           echo "Waiting for stack creation to complete..."
@@ -75,7 +75,7 @@ jobs:
           aws cloudformation update-stack \
             --stack-name ${{ env.STACK_NAME }} \
             --template-body file://aws-infrastructure.yml \
-            --parameters ParameterKey=UseCloudFront,ParameterValue=true \
+            --parameters ParameterKey=UseCloudFront,ParameterValue=true ParameterKey=DomainName,ParameterValue=maheswari-manoharan.ai ParameterKey=CertificateArn,ParameterValue=arn:aws:acm:us-east-1:842533763411:certificate/eaeeb898-de0e-4316-90f1-416f48ba3034 \
             --region ${{ env.AWS_REGION }} || echo "No updates needed"
 
           echo "Waiting for stack update to complete..."

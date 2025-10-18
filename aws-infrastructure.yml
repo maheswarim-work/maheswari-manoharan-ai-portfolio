@@ -15,6 +15,11 @@ Parameters:
     Description: 'Custom domain name (optional)'
     Default: ''
 
+  CertificateArn:
+    Type: String
+    Description: 'ACM Certificate ARN for custom domain (must be in us-east-1)'
+    Default: ''
+
 Conditions:
   UseCloudFrontCDN: !Equals [!Ref UseCloudFront, 'true']
   HasCustomDomain: !Not [!Equals [!Ref DomainName, '']]
@@ -87,8 +92,14 @@ Resources:
         PriceClass: PriceClass_100
         Aliases: !If
           - HasCustomDomain
-          - [!Ref DomainName]
+          - [!Ref DomainName, !Sub 'www.${DomainName}']
           - !Ref AWS::NoValue
+        ViewerCertificate: !If
+          - HasCustomDomain
+          - AcmCertificateArn: !Ref CertificateArn
+            SslSupportMethod: sni-only
+            MinimumProtocolVersion: TLSv1.2_2021
+          - CloudFrontDefaultCertificate: true
         Origins:
           - Id: S3Origin
             DomainName: !GetAtt WebsiteBucket.RegionalDomainName
