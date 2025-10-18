@@ -27,39 +27,39 @@ export const portfolioData = {
   experience: [
     {
       company: "Arch Capital Services LLC",
-      position: "Software Engineering Manager, Strategic Analytics",
-      duration: "Jun 2025 - Present",
-      description: "Leading Implementation Engineering team transforming complex data ecosystems into scalable, secure services for commercial and specialty insurance (Surety with Moody's integration, Healthcare, Professional Liability - Cyber, Lawyers, PUA, Real Estate). Delivering enterprise-grade APIs, predictive analytics models, and modern data platforms. Managing architecture oversight, end-to-end GitHub Actions CI/CD deployments for Python APIs, ModelServe services, Databricks workloads, Azure Data Factory pipelines, and database changes in Snowflake/Azure SQL. Leading distributed teams across U.S. and offshore, maintaining operational excellence through PR reviews, CAB approvals, Asana tracking, and cross-functional coordination."
+      position: "Software Engineering Manager",
+      duration: "June 2025 - Present",
+      description: "Leading Implementation Engineering team in Strategic Analytics division, transforming complex data ecosystems into scalable, secure, high-performing services for commercial and specialty insurance (Surety with Moody's integration, Healthcare, Professional Liability - Cyber, Lawyers, PUA, Real Estate). Delivering enterprise-grade APIs, predictive analytics models, and modern data platforms that empower enterprise-wide decision-making. Partnering with MLOps, Data Engineering, Feature Engineering, Data Science, and Data Visualization teams. Overseeing project architecture and leading technical discussions. Executing GitHub Actions-based CI/CD deployments across Python APIs, ModelServe services, Databricks workloads, Azure Data Factory pipelines, and database changes in Snowflake/Azure SQL. Managing distributed engineering team across U.S. and offshore time zones, maintaining operational excellence through PR reviews, CAB approvals, Asana task tracking, and cross-functional delivery coordination."
     },
     {
-      company: "Cox Automotive Inc.",
-      position: "Lead Software Engineer / Senior Software Engineer",
-      duration: "Apr 2022 - May 2025",
-      description: "Led Shop Operations/Seal/Proton Team developing Python/AWS SAM services with event-driven architecture using CDC. Implemented microservices using Lambda, EventBridge, DynamoDB, SQS, SNS, and other AWS services. Managed infrastructure with Terraform, upgraded RDS databases, and supported key integrations for CarMax, Hertz, and other major clients."
+      company: "Cox Automotive (Manheim)",
+      position: "Lead Software Engineer - Shop Operations/Seal/Proton Team",
+      duration: "April 2022 - May 2025",
+      description: "Led development of services in Python/AWS Serverless Application Model (SAM) deployed using AWS Code Pipeline/GitHub Actions. Developed microservices and APIs leveraging event-driven architecture with Change Data Capture (CDC), utilizing CloudFormation, Event Bridge, Lambda, S3, SNS, SQS, CloudWatch, Route53, DynamoDB, AWS Chatbot, Amazon OpenSearch, Batch, AWS Lambda Power tools. Wrote automation/unit tests using pytest, participated in architectural design discussions, upgraded AWS RDS Oracle and Postgres Databases. Supported Java services connecting to AS400/Postgres and Ruby applications. Used Terraform as IAC, Jenkins for CI/CD, deployed on Elastic Beanstalk/EC2. Maintained Rally, authored stories, ran standups, presented quarterly planning meetings. Participated in developer, QA and SRE interview panels, onboarded new team members. Worked with Cox Auto security group to mitigate security issues using Aqua, Veracode. Supported key deliverables for CarMax, Hertz/Auto Integrate, AMP/RRC, LMS, Capture retirement/Designated Description Service integration."
     },
     {
-      company: "Cox Automotive Inc.",
-      position: "Senior Software Engineer - Vehicle Information Team",
-      duration: "Jun 2020 - Apr 2022",
-      description: "Technical lead developing Java microservices with Spring Boot for vehicle imaging services. Built REST APIs and SOAP services using MySQL Aurora and DynamoDB. Deployed on AWS using Elastic Beanstalk, CloudFormation, and Terraform. Led migration of legacy on-premises services to AWS cloud infrastructure."
+      company: "Cox Automotive (Manheim)",
+      position: "Senior Software Engineer - Vehicle Information/Vipar Team",
+      duration: "June 2020 - April 2022",
+      description: "Technical lead and backend developer providing accurate vehicle imaging services for Manheim marketplace. Developed microservices using Java, Spring Framework, Spring Boot, SOAP web services & REST APIs with MySQL Aurora, DynamoDB and AS400 databases. Deployed services in AWS using SQS, SNS, EC2, Elastic Beanstalk, CloudWatch, CloudFront, X-Ray, S3, CloudFormation with Job DSL, Terraform, and Jenkins. Wrote unit, automation and performance tests using JUnit, Cucumber, Wire Mock, JMeter. Provided on-call support, worked with offshore team to maintain legacy Tomcat webservices with Enterprise JNDI and migrate them to AWS. Used Rally, SAFe Agile (Kanban), Datadog, New Relic, Splunk, PagerDuty, Aqua, Maven, Artifactory, Docker. Supported Manheim Image Capture (MIC) and Fyusion."
     },
     {
-      company: "Cox Automotive Inc.",
-      position: "Senior Software Engineer - Redline Team",
-      duration: "Jan 2020 - Jun 2020",
-      description: "Full stack developer for Seller Dashboard using Angular (NgRx) and Ruby on Rails. Implemented features enabling sellers to list vehicles in the Manheim ecosystem. Developed unit tests with Jasmine/RSpec and automated browser testing with Capybara."
+      company: "Cox Automotive (Manheim)",
+      position: "Full Stack Developer - Redline Team",
+      duration: "January 2020 - June 2020",
+      description: "Full stack developer for Seller Dashboard enabling sellers to list vehicles in the Manheim ecosystem. Developed application using Angular (NgRx), Ruby on Rails, Marble. Implemented testing with Jasmine, RSpec unit testing and Capybara automated browser testing. Deployed in AWS through Jenkins CI/CD."
     },
     {
-      company: "Cox Automotive Inc.",
-      position: "Senior Software Engineer - EpICS Team",
-      duration: "Mar 2015 - Dec 2019",
-      description: "Backend developer with Manheim's enterprise integration team. Built and deployed high-performing APIs using AWS Elastic Beanstalk, EC2, CloudFormation, and DynamoDB via Jenkins. Developed webservices using Java, Spring Framework, Spring Boot, SOAP & REST APIs, Tibco SOA deployed on Tomcat, Tibco servers, Oracle, and AS400/DB2 databases. Provided on-call support and maintained 100+ webservices as part of Manheim Common Services. Key deliverables: MMR/Valuations API, GFB API for Manheim Express, VIN decoding services, AS400 to Salesforce bridge, Ford Quic, Transaction Web Service (TWS), and support for multiple Manheim platforms."
+      company: "Cox Automotive (Manheim)",
+      position: "Backend Developer - EpICS Team",
+      duration: "March 2015 - December 2019",
+      description: "Backend developer with enterprise integration team interacting with multiple Manheim systems (OVE, DEBI, Manheim.com, AS400, BEE, Eventer, ODS, Oracle financial). Built and deployed high-performing APIs using AWS Elastic Beanstalk, EC2, CloudFormation, DynamoDB via Jenkins. Developed and maintained webservices in Java, Spring Framework, Spring Boot, SOAP & REST APIs, Tibco SOA deployed on Tomcat, Tibco servers, Oracle, AS400/DB2 databases, JDBC, stored procedures, PCML, FTP, EMS, and JMS queues. Implemented authentication/authorization using LDAP & Mashery, developed services using event-driven architecture. Provided on-call support and maintained 100+ webservices. Key deliverables: MMR (Manheim Market Report)/Valuations API for eMMR relaunch, GFB API (Guaranteed First Bid) for Manheim Express, VIN decoding services (VinExplosion), Ready auto transportation, AS400 to Salesforce bridge, Finalize Arbitrations, AS400 Notes API, Ford Quic, Auction Inventory Registration, Transaction Web Service (TWS), Nissan dashboard, MBonDemand, RMS, Gavel to Gate (G2G)."
     },
     {
       company: "Sterling Backcheck",
-      position: "Senior Software Engineer",
-      duration: "Jul 2013 - Mar 2015",
-      description: "Full stack developer in Client Integrations team onboarding new clients for pre-employment background checks. Developed applications using Java, JSP, Spring Framework, and SOAP web services. Managed integrations for 80+ clients including Lockheed Martin, Taleo, and Amazon. Handled PII security compliance and provided on-call support."
+      position: "Senior Software Engineer - Client Integrations Team",
+      duration: "July 2013 - March 2015",
+      description: "Full stack developer providing pre-employment background checks for client integrations. Developed applications using Java, JSP, Spring Framework, SOAP web services. Wrote unit tests using JUnit, screen scraper testing using Selenium, performance tests using JMeter. Worked with DBA on SQL Server database performance tuning. Troubleshot issues in Tomcat webserver, JBoss application server and Apache webserver. Provided on-call rotation, worked with offshore teams, coordinated with product and security teams for PII information security. Supported employment background checks for 80+ clients including Lockheed Martin, Taleo, Tumi, Amazon. Participated in support calls with clients and interacted with company executives for time-sensitive client integrations."
     }
   ],
   education: [
