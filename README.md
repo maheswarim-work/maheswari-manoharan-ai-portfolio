@@ -100,12 +100,28 @@ The `aws-infrastructure.yml` CloudFormation template creates:
 - Versioning enabled with 7-day lifecycle cleanup
 - Optional CloudFront distribution (disabled by default for cost)
 
-### Enabling CloudFront (Optional)
+### Custom Domain Setup (Cloudflare DNS)
 
-For HTTPS and global CDN:
-1. Edit `.github/workflows/aws-deploy.yml` line 61
-2. Change `ParameterValue=false` to `ParameterValue=true`
-3. Push changes
+**Current Setup**: CloudFront enabled with HTTPS support
+
+**Cloudflare DNS Configuration:**
+1. Go to Cloudflare Dashboard → DNS
+2. Add a CNAME record:
+   - **Type**: CNAME
+   - **Name**: `@` (for root domain) or `www` (for www subdomain)
+   - **Target**: `portfolio-842533763411.s3-website-us-east-1.amazonaws.com`
+   - **Proxy status**: ✅ Proxied (orange cloud enabled)
+   - **TTL**: Auto
+
+3. SSL/TLS Settings (Cloudflare Dashboard):
+   - Go to SSL/TLS → Overview
+   - Set encryption mode to **"Flexible"**
+   - This enables HTTPS from visitor to Cloudflare (Cloudflare to S3 remains HTTP)
+
+4. Wait 2-5 minutes for DNS propagation
+5. Access your site at `https://maheswari-manoharan.ai/`
+
+**Note**: Using Cloudflare's proxy provides free HTTPS and CDN without additional AWS costs
 
 ### Local Build
 
