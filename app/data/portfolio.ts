@@ -30,7 +30,7 @@ export const portfolioData = {
     name: "Maheswari Manoharan",
     title: "Software Engineering Professional Specializing In Modern Cloud Technologies Powered With Artificial Intelligence",
     location: "Greater Phoenix Area",
-    summary: "I am a T-Shaped Software Engineer with hands-on experience in the Analysis, Design, Development, Testing, Deployment, and Support of enterprise applications. Passionate about leveraging innovative technologies, I thrive in collaborative team environments that foster continuous growth and problem-solving. With 12+ years of expertise in cloud technologies, software development, and data platforms, I bring extensive experience in AWS, microservices architecture, and team leadership.",
+    summary: "I am a T-Shaped Software Engineer with hands-on experience in the Analysis, Design, Development, Testing, Deployment, and Support of enterprise applications. Passionate about leveraging innovative technologies.",
     email: "maheswarim.work@gmail.com",
     linkedin: "https://www.linkedin.com/in/maheswarimanoharan/",
     github: "https://github.com/maheswarim-work",

@@ -5,8 +5,8 @@ export default function Hero() {
   const { personal } = portfolioData
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-16">
-      <div className="container mx-auto px-4 sm:px-6 py-20">
+    <section id="home" className="flex items-center justify-center pt-16 pb-12">
+      <div className="container mx-auto px-4 sm:px-6 py-16">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-gray-900 mb-4 px-4">
             <span className="text-gradient-pink">{personal.name}</span>
