@@ -1,0 +1,164 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Cost-optimized static website hosting for Maheswari Manoharan Portfolio'
+
+Parameters:
+  UseCloudFront:
+    Type: String
+    Description: 'Use CloudFront CDN? (Adds cost but improves global performance)'
+    Default: 'false'
+    AllowedValues:
+      - 'true'
+      - 'false'
+
+  DomainName:
+    Type: String
+    Description: 'Custom domain name (optional)'
+    Default: ''
+
+Conditions:
+  UseCloudFrontCDN: !Equals [!Ref UseCloudFront, 'true']
+  HasCustomDomain: !Not [!Equals [!Ref DomainName, '']]
+
+Resources:
+  # S3 Bucket for hosting - Standard storage class for cost optimization
+  WebsiteBucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName: !Sub 'portfolio-${AWS::AccountId}'
+      # Public website hosting (cheapest option)
+      WebsiteConfiguration:
+        IndexDocument: 'index.html'
+        ErrorDocument: '404.html'
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+      # Lifecycle to delete old versions after 7 days (cost savings)
+      LifecycleConfiguration:
+        Rules:
+          - Id: DeleteOldVersions
+            Status: Enabled
+            NoncurrentVersionExpirationInDays: 7
+      VersioningConfiguration:
+        Status: Enabled
+      Tags:
+        - Key: Name
+          Value: Portfolio Website
+        - Key: CostCenter
+          Value: Personal
+
+  # Public read bucket policy (no CloudFront needed)
+  WebsiteBucketPolicy:
+    Type: 'AWS::S3::BucketPolicy'
+    Properties:
+      Bucket: !Ref WebsiteBucket
+      PolicyDocument:
+        Statement:
+          - Sid: PublicReadGetObject
+            Effect: Allow
+            Principal: '*'
+            Action: 's3:GetObject'
+            Resource: !Sub '${WebsiteBucket.Arn}/*'
+
+  # Optional CloudFront (only created if UseCloudFront is true)
+  CloudFrontOriginAccessControl:
+    Type: 'AWS::CloudFront::OriginAccessControl'
+    Condition: UseCloudFrontCDN
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub '${AWS::StackName}-OAC'
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  CloudFrontDistribution:
+    Type: 'AWS::CloudFront::Distribution'
+    Condition: UseCloudFrontCDN
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        Comment: 'Portfolio CDN'
+        DefaultRootObject: 'index.html'
+        HttpVersion: http2and3
+        # PriceClass_100 = North America & Europe only (cheapest)
+        PriceClass: PriceClass_100
+        Aliases: !If
+          - HasCustomDomain
+          - [!Ref DomainName]
+          - !Ref AWS::NoValue
+        Origins:
+          - Id: S3Origin
+            DomainName: !GetAtt WebsiteBucket.RegionalDomainName
+            S3OriginConfig:
+              OriginAccessIdentity: ''
+            OriginAccessControlId: !GetAtt CloudFrontOriginAccessControl.Id
+        DefaultCacheBehavior:
+          TargetOriginId: S3Origin
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods:
+            - GET
+            - HEAD
+          CachedMethods:
+            - GET
+            - HEAD
+          Compress: true
+          # Managed cache policy - CachingOptimized (free)
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+        CustomErrorResponses:
+          - ErrorCode: 404
+            ResponseCode: 200
+            ResponsePagePath: /404.html
+            ErrorCachingMinTTL: 300
+          - ErrorCode: 403
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+            ErrorCachingMinTTL: 300
+
+  # Update bucket policy if using CloudFront
+  CloudFrontBucketPolicy:
+    Type: 'AWS::S3::BucketPolicy'
+    Condition: UseCloudFrontCDN
+    Properties:
+      Bucket: !Ref WebsiteBucket
+      PolicyDocument:
+        Statement:
+          - Sid: AllowCloudFrontServicePrincipal
+            Effect: Allow
+            Principal:
+              Service: cloudfront.amazonaws.com
+            Action: 's3:GetObject'
+            Resource: !Sub '${WebsiteBucket.Arn}/*'
+            Condition:
+              StringEquals:
+                'AWS:SourceArn': !Sub 'arn:aws:cloudfront::${AWS::AccountId}:distribution/${CloudFrontDistribution}'
+
+Outputs:
+  BucketName:
+    Description: 'S3 Bucket Name'
+    Value: !Ref WebsiteBucket
+
+  WebsiteURL:
+    Description: 'Website URL (S3 direct)'
+    Value: !GetAtt WebsiteBucket.WebsiteURL
+
+  CloudFrontURL:
+    Description: 'CloudFront URL (if enabled)'
+    Value: !If
+      - UseCloudFrontCDN
+      - !Sub 'https://${CloudFrontDistribution.DomainName}'
+      - 'CloudFront not enabled'
+
+  CloudFrontDistributionId:
+    Description: 'CloudFront Distribution ID (if enabled)'
+    Value: !If
+      - UseCloudFrontCDN
+      - !Ref CloudFrontDistribution
+      - 'N/A'
+
+  EstimatedMonthlyCost:
+    Description: 'Estimated monthly cost'
+    Value: !If
+      - UseCloudFrontCDN
+      - 'S3: ~$0.50 + CloudFront: ~$1-2 (with low traffic)'
+      - 'S3 only: ~$0.50 (with low traffic)'

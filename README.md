@@ -8,7 +8,8 @@ Personal portfolio website for Maheswari Manoharan, built with Next.js, TypeScri
 - 💅 Styled with Tailwind CSS
 - 📱 Fully responsive design
 - ⚡ Optimized for performance
-- 🌐 Deployed on Azure Static Web Apps
+- ☁️ Deployed on AWS (S3 + Optional CloudFront)
+- 💰 Cost-optimized deployment (~$0.50/month)
 
 ## Getting Started
 
@@ -45,18 +46,68 @@ Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
 - `npm run lint` - Run ESLint
 - `npm run export` - Build and export static files for deployment
 
-## Deployment to Azure Static Web Apps
+## Deployment to AWS
 
-This project is configured for automatic deployment to Azure Static Web Apps using GitHub Actions.
+This project is configured for **cost-optimized** automatic deployment to AWS using GitHub Actions.
 
-### Setup Azure Deployment
+### Cost Optimization
 
-1. Create an Azure Static Web App in the Azure Portal
-2. During creation, connect your GitHub repository
-3. Azure will automatically add the `AZURE_STATIC_WEB_APPS_API_TOKEN` secret to your repository
-4. The GitHub Actions workflow will trigger on pushes to the main branch
+- **S3-only mode** (default): ~$0.50/month for low traffic
+- **Optional CloudFront CDN**: +$1-2/month (only if global CDN needed)
+- Lifecycle policies delete old versions after 7 days
+- No manual commands required - fully automated via GitHub Actions
 
-### Manual Deployment
+### Setup AWS Deployment
+
+1. **Create IAM User**:
+   - Go to AWS IAM Console → Users → Create user
+   - User name: `gha-maheswari-portfolio`
+   - Enable programmatic access only
+   - Attach the policy from `iam-policy.json` (least-privilege permissions)
+   - Save the Access Key ID and Secret Access Key
+
+2. **Add GitHub Secrets** (Settings → Secrets and variables → Actions):
+   ```
+   AWS_ACCESS_KEY_ID: Your IAM user access key ID
+   AWS_SECRET_ACCESS_KEY: Your IAM user secret access key
+   ```
+
+3. **Configure Region** (optional):
+   - Default: `us-east-1`
+   - Change in `.github/workflows/aws-deploy.yml` (line 14) if needed
+
+4. **Deploy**:
+   ```bash
+   git add .
+   git commit -m "Deploy to AWS"
+   git push origin main
+   ```
+
+5. **First Deployment**:
+   - GitHub Actions automatically creates CloudFormation stack
+   - Sets up S3 bucket with public website hosting
+   - Builds and deploys the site
+   - Check Actions tab for website URL
+
+6. **Subsequent Deployments**:
+   - Just push to main branch
+   - GitHub Actions handles build and deployment automatically
+
+### Infrastructure
+
+The `aws-infrastructure.yml` CloudFormation template creates:
+- S3 bucket with public website hosting
+- Versioning enabled with 7-day lifecycle cleanup
+- Optional CloudFront distribution (disabled by default for cost)
+
+### Enabling CloudFront (Optional)
+
+For HTTPS and global CDN:
+1. Edit `.github/workflows/aws-deploy.yml` line 61
+2. Change `ParameterValue=false` to `ParameterValue=true`
+3. Push changes
+
+### Local Build
 
 To build the static files locally:
 ```bash
@@ -87,7 +138,8 @@ The static files will be generated in the `out` directory.
 - [TypeScript](https://www.typescriptlang.org/) - Type safety
 - [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS
 - [Lucide React](https://lucide.dev/) - Icons
-- [Azure Static Web Apps](https://azure.microsoft.com/en-us/services/app-service/static/) - Hosting
+- [AWS S3](https://aws.amazon.com/s3/) - Static website hosting
+- [AWS CloudFormation](https://aws.amazon.com/cloudformation/) - Infrastructure as Code
 
 ## License
 

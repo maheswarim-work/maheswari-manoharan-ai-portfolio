@@ -17,7 +17,7 @@ export default function Header() {
   ]
 
   return (
-    <header className="fixed top-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50 border-b border-pink-100">
+    <header className="fixed top-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50 border-b border-teal-100">
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="text-2xl font-bold text-gray-800">
@@ -30,7 +30,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-gray-600 hover:text-pink-600 transition-colors"
+                className="text-gray-600 hover:text-teal-600 transition-colors"
               >
                 {item.label}
               </Link>
@@ -53,7 +53,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="block py-2 text-gray-600 hover:text-pink-600 transition-colors"
+                className="block py-2 text-gray-600 hover:text-teal-600 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}

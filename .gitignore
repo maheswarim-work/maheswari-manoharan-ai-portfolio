@@ -39,3 +39,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# AWS credentials and sensitive files
+.aws/
+*.pem
+*.key
+*credentials*
+*secret*
+.terraform/
+terraform.tfstate*
+
+# Local deployment configs
+.vscode/settings.json
+.idea/

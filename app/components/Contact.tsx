@@ -20,27 +20,27 @@ export default function Contact() {
           <div className="space-y-4">
             <a
               href={`mailto:${personal.email}`}
-              className="flex items-center justify-center space-x-3 text-gray-700 hover:text-pink-600 transition-colors"
+              className="flex items-center justify-center space-x-3 text-gray-700 hover:text-teal-600 transition-colors"
             >
               <Mail size={20} />
               <span>{personal.email}</span>
             </a>
-            
+
             <a
               href={personal.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center space-x-3 text-gray-700 hover:text-pink-600 transition-colors"
+              className="flex items-center justify-center space-x-3 text-gray-700 hover:text-teal-600 transition-colors"
             >
               <Linkedin size={20} />
               <span>LinkedIn Profile</span>
             </a>
-            
+
             <a
               href={personal.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center space-x-3 text-gray-700 hover:text-pink-600 transition-colors"
+              className="flex items-center justify-center space-x-3 text-gray-700 hover:text-teal-600 transition-colors"
             >
               <Github size={20} />
               <span>GitHub Profile</span>

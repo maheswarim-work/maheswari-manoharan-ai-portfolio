@@ -22,7 +22,7 @@ export default function Hero() {
               href={personal.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 bg-pink-50 text-pink-600 rounded-full hover:bg-pink-100 transition-all hover:scale-110"
+              className="p-3 bg-teal-50 text-teal-600 rounded-full hover:bg-teal-100 transition-all hover:scale-110"
             >
               <Linkedin size={24} />
             </a>
@@ -30,13 +30,13 @@ export default function Hero() {
               href={personal.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 bg-pink-50 text-pink-600 rounded-full hover:bg-pink-100 transition-all hover:scale-110"
+              className="p-3 bg-teal-50 text-teal-600 rounded-full hover:bg-teal-100 transition-all hover:scale-110"
             >
               <Github size={24} />
             </a>
             <a
               href={`mailto:${personal.email}`}
-              className="p-3 bg-pink-50 text-pink-600 rounded-full hover:bg-pink-100 transition-all hover:scale-110"
+              className="p-3 bg-teal-50 text-teal-600 rounded-full hover:bg-teal-100 transition-all hover:scale-110"
             >
               <Mail size={24} />
             </a>
@@ -45,7 +45,7 @@ export default function Hero() {
                 href={personal.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-pink-50 text-pink-600 rounded-full hover:bg-pink-100 transition-all hover:scale-110"
+                className="p-3 bg-teal-50 text-teal-600 rounded-full hover:bg-teal-100 transition-all hover:scale-110"
               >
                 <Twitter size={24} />
               </a>

@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  // Ensure trailing slashes for Azure Static Web Apps
+  // Trailing slashes for static export
   trailingSlash: true,
 };
 

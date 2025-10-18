@@ -1,0 +1,160 @@
+name: Deploy to AWS (Cost-Optimized)
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+
+env:
+  STACK_NAME: maheswari-portfolio
+  AWS_REGION: us-east-1  # Change this to your preferred region
+
+jobs:
+  build_and_deploy:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    name: Build and Deploy to AWS
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Next.js site
+        run: npm run build
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Check if CloudFormation stack exists
+        id: check-stack
+        run: |
+          if aws cloudformation describe-stacks --stack-name ${{ env.STACK_NAME }} --region ${{ env.AWS_REGION }} 2>/dev/null; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create CloudFormation stack (first time only)
+        if: steps.check-stack.outputs.exists == 'false'
+        run: |
+          echo "Creating new CloudFormation stack..."
+          aws cloudformation create-stack \
+            --stack-name ${{ env.STACK_NAME }} \
+            --template-body file://aws-infrastructure.yml \
+            --parameters ParameterKey=UseCloudFront,ParameterValue=false \
+            --region ${{ env.AWS_REGION }}
+
+          echo "Waiting for stack creation to complete..."
+          aws cloudformation wait stack-create-complete \
+            --stack-name ${{ env.STACK_NAME }} \
+            --region ${{ env.AWS_REGION }}
+
+          echo "Stack created successfully!"
+
+      - name: Get S3 bucket name from CloudFormation
+        id: get-bucket
+        run: |
+          BUCKET_NAME=$(aws cloudformation describe-stacks \
+            --stack-name ${{ env.STACK_NAME }} \
+            --region ${{ env.AWS_REGION }} \
+            --query 'Stacks[0].Outputs[?OutputKey==`BucketName`].OutputValue' \
+            --output text)
+          echo "bucket=$BUCKET_NAME" >> $GITHUB_OUTPUT
+          echo "Bucket name: $BUCKET_NAME"
+
+      - name: Deploy to S3
+        run: |
+          echo "Deploying to S3 bucket: ${{ steps.get-bucket.outputs.bucket }}"
+          aws s3 sync out/ s3://${{ steps.get-bucket.outputs.bucket }}/ \
+            --delete \
+            --cache-control "public, max-age=3600" \
+            --exclude "*.map"
+
+      - name: Get CloudFront distribution ID (if exists)
+        id: get-cloudfront
+        run: |
+          DISTRIBUTION_ID=$(aws cloudformation describe-stacks \
+            --stack-name ${{ env.STACK_NAME }} \
+            --region ${{ env.AWS_REGION }} \
+            --query 'Stacks[0].Outputs[?OutputKey==`CloudFrontDistributionId`].OutputValue' \
+            --output text)
+
+          if [ "$DISTRIBUTION_ID" != "N/A" ] && [ ! -z "$DISTRIBUTION_ID" ]; then
+            echo "distribution_id=$DISTRIBUTION_ID" >> $GITHUB_OUTPUT
+            echo "has_cloudfront=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_cloudfront=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Invalidate CloudFront cache
+        if: steps.get-cloudfront.outputs.has_cloudfront == 'true'
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ steps.get-cloudfront.outputs.distribution_id }} \
+            --paths "/*"
+
+      - name: Get website URL
+        id: get-url
+        run: |
+          WEBSITE_URL=$(aws cloudformation describe-stacks \
+            --stack-name ${{ env.STACK_NAME }} \
+            --region ${{ env.AWS_REGION }} \
+            --query 'Stacks[0].Outputs[?OutputKey==`WebsiteURL`].OutputValue' \
+            --output text)
+          echo "url=$WEBSITE_URL" >> $GITHUB_OUTPUT
+
+      - name: Deployment Summary
+        run: |
+          echo "🚀 Deployment Complete!"
+          echo "📦 Bucket: ${{ steps.get-bucket.outputs.bucket }}"
+          echo "🌐 Website URL: ${{ steps.get-url.outputs.url }}"
+          echo "💰 Cost Mode: S3-only (optimized)"
+
+  build_preview:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    name: Build PR Preview
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Next.js site
+        run: npm run build
+
+      - name: PR Build Success Comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '✅ Build successful! Ready for deployment to AWS after merge.'
+            })

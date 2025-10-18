@@ -16,7 +16,7 @@ export default function Experience() {
           <div className="mb-12">
             <h3 className="text-2xl font-semibold text-gray-800 mb-6">Work Experience</h3>
             {experience.map((job, index) => (
-              <div key={index} className="mb-8 bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-md border border-pink-100 hover:shadow-lg transition-shadow">
+              <div key={index} className="mb-8 bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-md border border-teal-100 hover:shadow-lg transition-shadow">
                 <div className="flex items-start justify-between mb-2">
                   <div>
                     <h4 className="text-xl font-semibold text-gray-900">{job.position}</h4>
@@ -39,7 +39,7 @@ export default function Experience() {
           <div>
             <h3 className="text-2xl font-semibold text-gray-800 mb-6">Education</h3>
             {education.map((edu, index) => (
-              <div key={index} className="mb-6 bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-md border border-pink-100 hover:shadow-lg transition-shadow">
+              <div key={index} className="mb-6 bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-md border border-teal-100 hover:shadow-lg transition-shadow">
                 <h4 className="text-xl font-semibold text-gray-900">{edu.degree}</h4>
                 <p className="text-gray-600 mt-1">{edu.institution}</p>
                 <p className="text-gray-700 mt-3">{edu.description}</p>
