@@ -14,7 +14,7 @@ export default function Skills() {
   return (
     <section id="skills" className="py-16">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-12" style={{color: '#C026D3'}}>
+        <h2 className="text-4xl font-bold text-center mb-12" style={{color: '#ec4899'}}>
           Skills & Expertise
         </h2>
 

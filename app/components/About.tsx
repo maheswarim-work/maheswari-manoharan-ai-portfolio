@@ -7,7 +7,7 @@ export default function About() {
   return (
     <section id="about" className="py-16">
       <div className="container mx-auto px-5 sm:px-6">
-        <h2 className="text-center mb-16" style={{color: '#C026D3', fontSize: '36px', fontWeight: '700'}}>
+        <h2 className="text-center mb-16" style={{color: '#ec4899', fontSize: '36px', fontWeight: '700'}}>
           About Me
         </h2>
         <div className="max-w-6xl mx-auto">
@@ -15,7 +15,7 @@ export default function About() {
             {/* T-Shaped Engineer */}
             <div className="card" style={{
               background: '#FFFFFF',
-              borderLeft: '3px solid #C026D3',
+              borderLeft: '3px solid #ec4899',
               borderRadius: '8px',
               padding: '28px',
               boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
@@ -23,13 +23,13 @@ export default function About() {
             }}>
               <div className="flex items-start space-x-5">
                 <div className="flex-shrink-0 p-3.5 rounded-lg" style={{
-                  background: '#C026D3',
+                  background: '#ec4899',
                   boxShadow: '0 2px 8px rgba(37, 99, 235, 0.3)'
                 }}>
                   <Code2 size={28} style={{color: 'white'}} />
                 </div>
                 <div className="flex-1">
-                  <h3 className="mb-4" style={{color: '#C026D3', fontSize: '22px', fontWeight: '700'}}>
+                  <h3 className="mb-4" style={{color: '#ec4899', fontSize: '22px', fontWeight: '700'}}>
                     T-Shaped Engineer
                   </h3>
                   <p style={{color: '#1E293B', lineHeight: '1.8', fontSize: '15px'}}>
@@ -42,7 +42,7 @@ export default function About() {
             {/* Cloud Architecture */}
             <div className="card" style={{
               background: '#FFFFFF',
-              borderLeft: '3px solid #E879F9',
+              borderLeft: '3px solid #f472b6',
               borderRadius: '8px',
               padding: '28px',
               boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
@@ -50,13 +50,13 @@ export default function About() {
             }}>
               <div className="flex items-start space-x-5">
                 <div className="flex-shrink-0 p-3.5 rounded-lg" style={{
-                  background: '#E879F9',
+                  background: '#f472b6',
                   boxShadow: '0 2px 8px rgba(20, 184, 166, 0.3)'
                 }}>
                   <Cloud size={28} style={{color: 'white'}} />
                 </div>
                 <div className="flex-1">
-                  <h3 className="mb-4" style={{color: '#C026D3', fontSize: '22px', fontWeight: '700'}}>
+                  <h3 className="mb-4" style={{color: '#ec4899', fontSize: '22px', fontWeight: '700'}}>
                     Cloud Architecture
                   </h3>
                   <p style={{color: '#1E293B', lineHeight: '1.8', fontSize: '15px'}}>
@@ -69,7 +69,7 @@ export default function About() {
             {/* Data Platforms */}
             <div className="card" style={{
               background: '#FFFFFF',
-              borderLeft: '3px solid #E879F9',
+              borderLeft: '3px solid #f472b6',
               borderRadius: '8px',
               padding: '28px',
               boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
@@ -77,13 +77,13 @@ export default function About() {
             }}>
               <div className="flex items-start space-x-5">
                 <div className="flex-shrink-0 p-3.5 rounded-lg" style={{
-                  background: '#E879F9',
+                  background: '#f472b6',
                   boxShadow: '0 2px 8px rgba(20, 184, 166, 0.3)'
                 }}>
                   <Database size={28} style={{color: 'white'}} />
                 </div>
                 <div className="flex-1">
-                  <h3 className="mb-4" style={{color: '#C026D3', fontSize: '22px', fontWeight: '700'}}>
+                  <h3 className="mb-4" style={{color: '#ec4899', fontSize: '22px', fontWeight: '700'}}>
                     Data Platforms
                   </h3>
                   <p style={{color: '#1E293B', lineHeight: '1.8', fontSize: '15px'}}>
@@ -96,7 +96,7 @@ export default function About() {
             {/* 12+ Years Experience */}
             <div className="card" style={{
               background: '#FFFFFF',
-              borderLeft: '3px solid #C026D3',
+              borderLeft: '3px solid #ec4899',
               borderRadius: '8px',
               padding: '28px',
               boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
@@ -104,13 +104,13 @@ export default function About() {
             }}>
               <div className="flex items-start space-x-5">
                 <div className="flex-shrink-0 p-3.5 rounded-lg" style={{
-                  background: '#C026D3',
+                  background: '#ec4899',
                   boxShadow: '0 2px 8px rgba(37, 99, 235, 0.3)'
                 }}>
                   <Sparkles size={28} style={{color: 'white'}} />
                 </div>
                 <div className="flex-1">
-                  <h3 className="mb-4" style={{color: '#C026D3', fontSize: '22px', fontWeight: '700'}}>
+                  <h3 className="mb-4" style={{color: '#ec4899', fontSize: '22px', fontWeight: '700'}}>
                     12+ Years Experience
                   </h3>
                   <p style={{color: '#1E293B', lineHeight: '1.8', fontSize: '15px'}}>

@@ -24,7 +24,7 @@ export default function Header() {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="text-2xl font-bold" style={{
-            color: '#C026D3'
+            color: '#ec4899'
           }}>
             MM
           </Link>
@@ -37,7 +37,7 @@ export default function Header() {
                 href={item.href}
                 className="font-medium transition-colors"
                 style={{color: '#64748B'}}
-                onMouseEnter={(e) => e.currentTarget.style.color = '#C026D3'}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#ec4899'}
                 onMouseLeave={(e) => e.currentTarget.style.color = '#64748B'}
               >
                 {item.label}
@@ -48,7 +48,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             className="md:hidden"
-            style={{color: '#C026D3'}}
+            style={{color: '#ec4899'}}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -64,7 +64,7 @@ export default function Header() {
                 href={item.href}
                 className="block py-2 font-medium transition-colors"
                 style={{color: '#64748B'}}
-                onMouseEnter={(e) => e.currentTarget.style.color = '#C026D3'}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#ec4899'}
                 onMouseLeave={(e) => e.currentTarget.style.color = '#64748B'}
                 onClick={() => setIsMenuOpen(false)}
               >

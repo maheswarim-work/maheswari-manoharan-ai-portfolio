@@ -9,14 +9,14 @@ export default function Contact() {
   return (
     <section id="contact" className="py-16">
       <div className="container mx-auto px-5 sm:px-6">
-        <h2 className="text-center mb-6" style={{color: '#C026D3', fontSize: '36px', fontWeight: '700'}}>
+        <h2 className="text-center mb-6" style={{color: '#ec4899', fontSize: '36px', fontWeight: '700'}}>
           Let's Connect
         </h2>
 
         <div className="max-w-xl mx-auto">
           <div className="card" style={{
             background: '#FFFFFF',
-            borderLeft: '3px solid #C026D3',
+            borderLeft: '3px solid #ec4899',
             borderRadius: '8px',
             padding: '48px 40px',
             boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
@@ -33,12 +33,12 @@ export default function Contact() {
                   href={`mailto:${personal.email}`}
                   className="inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded-lg font-semibold text-base transition-all hover:shadow-lg"
                   style={{
-                    background: '#C026D3',
+                    background: '#ec4899',
                     color: 'white',
                     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.background = '#A21CAF'}
-                  onMouseLeave={(e) => e.currentTarget.style.background = '#C026D3'}
+                  onMouseEnter={(e) => e.currentTarget.style.background = '#db2777'}
+                  onMouseLeave={(e) => e.currentTarget.style.background = '#ec4899'}
                 >
                   <Mail size={20} />
                   <span>Email Me</span>
@@ -49,12 +49,12 @@ export default function Contact() {
                   download
                   className="inline-flex items-center justify-center space-x-2 px-6 py-3.5 rounded-lg font-medium text-base transition-all hover:shadow-lg"
                   style={{
-                    background: '#E879F9',
+                    background: '#f472b6',
                     color: 'white',
                     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.background = '#D946EF'}
-                  onMouseLeave={(e) => e.currentTarget.style.background = '#E879F9'}
+                  onMouseEnter={(e) => e.currentTarget.style.background = '#f9a8d4'}
+                  onMouseLeave={(e) => e.currentTarget.style.background = '#f472b6'}
                 >
                   <Download size={18} />
                   <span>Download Résumé (PDF)</span>
@@ -70,7 +70,7 @@ export default function Contact() {
                   className="flex items-center gap-2 transition-all group"
                   style={{color: '#64748B'}}
                 >
-                  <Linkedin size={20} style={{color: '#C026D3'}} />
+                  <Linkedin size={20} style={{color: '#ec4899'}} />
                   <span className="text-sm font-medium">LinkedIn</span>
                 </a>
 
@@ -81,7 +81,7 @@ export default function Contact() {
                   className="flex items-center gap-2 transition-all group"
                   style={{color: '#64748B'}}
                 >
-                  <Github size={20} style={{color: '#E879F9'}} />
+                  <Github size={20} style={{color: '#f472b6'}} />
                   <span className="text-sm font-medium">GitHub</span>
                 </a>
 
@@ -93,7 +93,7 @@ export default function Contact() {
                     className="flex items-center gap-2 transition-all group"
                     style={{color: '#64748B'}}
                   >
-                    <Twitter size={20} style={{color: '#E879F9'}} />
+                    <Twitter size={20} style={{color: '#f472b6'}} />
                     <span className="text-sm font-medium">Twitter</span>
                   </a>
                 )}

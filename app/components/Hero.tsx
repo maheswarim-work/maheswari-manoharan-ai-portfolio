@@ -26,12 +26,12 @@ export default function Hero() {
               download
               className="inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all hover:shadow-lg text-sm"
               style={{
-                background: '#C026D3',
+                background: '#ec4899',
                 color: 'white',
                 boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
               }}
-              onMouseEnter={(e) => e.currentTarget.style.background = '#A21CAF'}
-              onMouseLeave={(e) => e.currentTarget.style.background = '#C026D3'}
+              onMouseEnter={(e) => e.currentTarget.style.background = '#db2777'}
+              onMouseLeave={(e) => e.currentTarget.style.background = '#ec4899'}
             >
               <Download size={18} />
               <span>Resume (PDF)</span>
@@ -41,12 +41,12 @@ export default function Hero() {
               download
               className="inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all hover:shadow-lg text-sm"
               style={{
-                background: '#E879F9',
+                background: '#f472b6',
                 color: 'white',
                 boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
               }}
-              onMouseEnter={(e) => e.currentTarget.style.background = '#D946EF'}
-              onMouseLeave={(e) => e.currentTarget.style.background = '#E879F9'}
+              onMouseEnter={(e) => e.currentTarget.style.background = '#f9a8d4'}
+              onMouseLeave={(e) => e.currentTarget.style.background = '#f472b6'}
             >
               <FileText size={18} />
               <span>Resume (DOCX)</span>
@@ -61,7 +61,7 @@ export default function Hero() {
               className="p-3 rounded-lg transition-all hover:shadow-md"
               style={{
                 background: '#FFFFFF',
-                color: '#C026D3',
+                color: '#ec4899',
                 border: '1px solid #E5E7EB'
               }}
             >
@@ -74,7 +74,7 @@ export default function Hero() {
               className="p-3 rounded-lg transition-all hover:shadow-md"
               style={{
                 background: '#FFFFFF',
-                color: '#E879F9',
+                color: '#f472b6',
                 border: '1px solid #E5E7EB'
               }}
             >
@@ -85,7 +85,7 @@ export default function Hero() {
               className="p-3 rounded-lg transition-all hover:shadow-md"
               style={{
                 background: '#FFFFFF',
-                color: '#C026D3',
+                color: '#ec4899',
                 border: '1px solid #E5E7EB'
               }}
             >
@@ -99,7 +99,7 @@ export default function Hero() {
                 className="p-3 rounded-lg transition-all hover:shadow-md"
                 style={{
                   background: '#FFFFFF',
-                  color: '#E879F9',
+                  color: '#f472b6',
                   border: '1px solid #E5E7EB'
                 }}
               >
