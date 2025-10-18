@@ -114,7 +114,7 @@ export default function About() {
                     12+ Years Experience
                   </h3>
                   <p style={{color: '#374151', lineHeight: '1.8', fontSize: '15px'}}>
-                    Strong foundation in computer science with extensive industry experience building robust software applications and leading engineering teams.
+                    Strong computer science foundation with 12+ years leading teams and building enterprise software across insurance, automotive, and employment verification.
                   </p>
                 </div>
               </div>
