@@ -13,37 +13,38 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Maheswari Manoharan - Technology Professional",
-  description: "Personal portfolio of Maheswari Manoharan - Technology Professional with 12+ years of expertise in cloud technologies, software development, and data platforms.",
-  keywords: "Maheswari Manoharan, Technology Professional, Cloud Technologies, AWS, Azure, Software Development, Data Engineering",
+  title: "Maheswari Manoharan - Software Engineering Professional",
+  description: "AI-Driven Engineering Portfolio. Software Engineering Professional with 12+ years building scalable cloud solutions across insurance, automotive, and employment verification. Built with Cursor AI, Claude Code, Next.js, and AWS.",
+  keywords: "Maheswari Manoharan, Software Engineering Manager, Cloud Architecture, AWS, Azure, Python, Java, Microservices, AI-Powered Development, Cursor AI, Claude Code",
   authors: [{ name: "Maheswari Manoharan" }],
   manifest: '/manifest.json',
   openGraph: {
-    title: "Maheswari Manoharan - AI-Powered Technology Portfolio",
-    description: "Software Engineering Manager specializing in modern cloud technologies powered with artificial intelligence. 12+ years expertise in AWS, Azure, and enterprise solutions.",
+    title: "Maheswari Manoharan — AI-Driven Engineering Portfolio",
+    description: "Software Engineering Professional with 12+ years building scalable cloud solutions. Built with Cursor AI, Claude Code, Next.js, AWS, and GitHub Actions.",
     type: "website",
     url: "https://maheswari-manoharan.ai",
-    siteName: "Maheswari Manoharan Portfolio",
+    siteName: "Maheswari Manoharan",
     images: [
       {
         url: "https://maheswari-manoharan.ai/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Maheswari Manoharan - Software Engineering Manager | AI-Powered Cloud Technologies",
+        alt: "Maheswari Manoharan - AI-Driven Engineering Portfolio | Built with Cursor AI, Claude Code, Next.js, AWS",
         type: "image/png",
       }
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maheswari Manoharan - AI-Powered Technology Portfolio",
-    description: "Software Engineering Manager specializing in modern cloud technologies powered with artificial intelligence.",
+    title: "Maheswari Manoharan — AI-Driven Engineering Portfolio",
+    description: "Software Engineering Professional. Built with Cursor AI, Claude Code, Next.js, AWS, and GitHub Actions.",
     images: ["https://maheswari-manoharan.ai/og-image.png"],
   },
   icons: {
     icon: '/favicon.svg',
     shortcut: '/favicon.svg',
   },
+  metadataBase: new URL('https://maheswari-manoharan.ai'),
 };
 
 export default function RootLayout({

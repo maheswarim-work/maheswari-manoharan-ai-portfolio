@@ -17,17 +17,17 @@ export default function Experience() {
             <h3 className="text-2xl font-semibold text-gray-800 mb-6">Work Experience</h3>
             {experience.map((job, index) => (
               <div key={index} className="mb-8 bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-md border border-slate-200 hover:shadow-lg transition-shadow">
-                <div className="flex items-start justify-between mb-2">
-                  <div>
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-2 gap-2">
+                  <div className="flex-1 min-w-0">
                     <h4 className="text-xl font-semibold text-gray-900">{job.position}</h4>
                     <div className="flex items-center text-gray-600 mt-1">
-                      <Building2 size={16} className="mr-2" />
+                      <Building2 size={16} className="mr-2 flex-shrink-0" />
                       <span>{job.company}</span>
                     </div>
                   </div>
-                  <div className="flex items-center text-gray-500 flex-shrink-0 ml-4">
+                  <div className="flex items-center text-gray-500 flex-shrink-0">
                     <Calendar size={16} className="mr-2" />
-                    <span className="text-sm">{job.duration}</span>
+                    <span className="text-sm whitespace-nowrap">{job.duration}</span>
                   </div>
                 </div>
                 <ul className="mt-4 space-y-2">
