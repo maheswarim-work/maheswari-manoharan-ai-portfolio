@@ -25,12 +25,19 @@ export default function Experience() {
                       <span>{job.company}</span>
                     </div>
                   </div>
-                  <div className="flex items-center text-gray-500">
+                  <div className="flex items-center text-gray-500 flex-shrink-0 ml-4">
                     <Calendar size={16} className="mr-2" />
-                    <span>{job.duration}</span>
+                    <span className="text-sm">{job.duration}</span>
                   </div>
                 </div>
-                <p className="text-gray-700 mt-3">{job.description}</p>
+                <ul className="mt-4 space-y-2">
+                  {job.highlights.map((highlight, hIndex) => (
+                    <li key={hIndex} className="text-gray-700 text-sm flex">
+                      <span className="text-blue-700 mr-2 flex-shrink-0">•</span>
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
