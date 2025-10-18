@@ -1,54 +1,25 @@
 'use client'
 
 import { portfolioData } from '../data/portfolio'
-import { Mail, Linkedin, Github, MapPin, Download, FileText } from 'lucide-react'
+import { Mail, Linkedin, Github, MapPin } from 'lucide-react'
 
 export default function Contact() {
   const { personal } = portfolioData
 
   return (
-    <section id="contact" className="section-spacing">
+    <section id="contact" className="section-spacing" style={{background: 'white'}}>
       <div className="container mx-auto px-5 sm:px-6">
-        <h2 className="text-center mb-12">
+        <h2 className="text-center mb-8" style={{color: '#1E3A8A'}}>
           Get In Touch
         </h2>
 
         <div className="max-w-3xl mx-auto">
-          <div className="card">
+          <div className="card" style={{background: '#FAFAFA', borderColor: '#E5E7EB'}}>
             <div className="text-center">
-              <p className="mb-8 readable-text">
+              <p className="mb-10 readable-text" style={{fontSize: '19px', color: '#111827', fontWeight: '500', lineHeight: '1.8'}}>
                 I'm always interested in hearing about new opportunities and exciting projects.
                 Feel free to reach out if you'd like to connect!
               </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-                <a
-                  href="/Maheswari_Manoharan_Resume.pdf"
-                  download
-                  className="inline-flex items-center justify-center space-x-2 px-8 py-4 rounded-lg font-semibold transition-all hover:-translate-y-0.5 hover:shadow-lg"
-                  style={{
-                    background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)',
-                    color: 'white',
-                    fontSize: '17px'
-                  }}
-                >
-                  <Download size={20} />
-                  <span>Download Résumé (PDF)</span>
-                </a>
-                <a
-                  href="/Maheswari_Manoharan_Resume.docx"
-                  download
-                  className="inline-flex items-center justify-center space-x-2 px-8 py-4 rounded-lg font-semibold transition-all hover:-translate-y-0.5 hover:shadow-lg"
-                  style={{
-                    background: 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)',
-                    color: 'white',
-                    fontSize: '17px'
-                  }}
-                >
-                  <FileText size={20} />
-                  <span>Download Résumé (DOCX)</span>
-                </a>
-              </div>
 
               <div className="space-y-4">
                 <a

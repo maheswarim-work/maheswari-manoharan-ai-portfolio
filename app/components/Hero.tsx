@@ -1,5 +1,5 @@
 import { portfolioData } from '../data/portfolio'
-import { Github, Linkedin, Mail, Twitter } from 'lucide-react'
+import { Github, Linkedin, Mail, Twitter, Download, FileText } from 'lucide-react'
 
 export default function Hero() {
   const { personal } = portfolioData
@@ -14,9 +14,37 @@ export default function Hero() {
           <h2 className="text-xl sm:text-2xl md:text-3xl text-gray-600 mb-8 px-4 leading-relaxed">
             {personal.title}
           </h2>
-          <p className="text-base sm:text-lg text-gray-500 mb-8 px-4">
+          <p className="text-base sm:text-lg text-gray-500 mb-6 px-4">
             {personal.location}
           </p>
+
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10 px-4">
+            <a
+              href="/Maheswari_Manoharan_Resume.pdf"
+              download
+              className="inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all hover:-translate-y-0.5 hover:shadow-lg text-sm"
+              style={{
+                background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)',
+                color: 'white'
+              }}
+            >
+              <Download size={18} />
+              <span>Resume (PDF)</span>
+            </a>
+            <a
+              href="/Maheswari_Manoharan_Resume.docx"
+              download
+              className="inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all hover:-translate-y-0.5 hover:shadow-lg text-sm"
+              style={{
+                background: 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)',
+                color: 'white'
+              }}
+            >
+              <FileText size={18} />
+              <span>Resume (DOCX)</span>
+            </a>
+          </div>
+
           <div className="flex justify-center space-x-4">
             <a
               href={personal.linkedin}
