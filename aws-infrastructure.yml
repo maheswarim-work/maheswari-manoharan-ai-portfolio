@@ -18,6 +18,7 @@ Parameters:
 Conditions:
   UseCloudFrontCDN: !Equals [!Ref UseCloudFront, 'true']
   HasCustomDomain: !Not [!Equals [!Ref DomainName, '']]
+  UseS3DirectAccess: !Equals [!Ref UseCloudFront, 'false']
 
 Resources:
   # S3 Bucket for hosting - Standard storage class for cost optimization
@@ -48,9 +49,10 @@ Resources:
         - Key: CostCenter
           Value: Personal
 
-  # Public read bucket policy (no CloudFront needed)
+  # Public read bucket policy (only when CloudFront is disabled)
   WebsiteBucketPolicy:
     Type: 'AWS::S3::BucketPolicy'
+    Condition: UseS3DirectAccess
     Properties:
       Bucket: !Ref WebsiteBucket
       PolicyDocument:
