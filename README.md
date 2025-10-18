@@ -59,12 +59,12 @@ This project is configured for **cost-optimized** automatic deployment to AWS us
 
 ### Setup AWS Deployment
 
-1. **Create IAM User**:
-   - Go to AWS IAM Console → Users → Create user
+1. **Create/Update IAM User**:
+   - Go to AWS IAM Console → Users → Find `gha-maheswari-portfolio` or Create user
    - User name: `gha-maheswari-portfolio`
    - Enable programmatic access only
-   - Attach the policy from `iam-policy.json` (least-privilege permissions)
-   - Save the Access Key ID and Secret Access Key
+   - **Update the attached policy** with the latest `iam-policy.json` (includes CloudFront permissions)
+   - Save the Access Key ID and Secret Access Key (if creating new)
 
 2. **Add GitHub Secrets** (Settings → Secrets and variables → Actions):
    ```

@@ -43,8 +43,13 @@
       "Effect": "Allow",
       "Action": [
         "cloudfront:CreateDistribution",
+        "cloudfront:GetDistribution",
+        "cloudfront:UpdateDistribution",
         "cloudfront:CreateInvalidation",
-        "cloudfront:CreateOriginAccessControl"
+        "cloudfront:CreateOriginAccessControl",
+        "cloudfront:GetOriginAccessControl",
+        "cloudfront:UpdateOriginAccessControl",
+        "cloudfront:ListOriginAccessControls"
       ],
       "Resource": "*"
     }
