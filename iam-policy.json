@@ -45,12 +45,15 @@
         "cloudfront:CreateDistribution",
         "cloudfront:GetDistribution",
         "cloudfront:UpdateDistribution",
+        "cloudfront:DeleteDistribution",
         "cloudfront:CreateInvalidation",
         "cloudfront:CreateOriginAccessControl",
         "cloudfront:GetOriginAccessControl",
         "cloudfront:UpdateOriginAccessControl",
+        "cloudfront:DeleteOriginAccessControl",
         "cloudfront:ListOriginAccessControls",
-        "cloudfront:TagResource"
+        "cloudfront:TagResource",
+        "cloudfront:UntagResource"
       ],
       "Resource": "*"
     }
