@@ -20,7 +20,7 @@ export default function Header() {
     <header className="fixed top-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50 border-b border-slate-200">
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="text-2xl font-bold text-gray-800">
+          <Link href="/" className="text-2xl font-bold" style={{color: '#1E3A8A'}}>
             MM
           </Link>
 
@@ -30,7 +30,8 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-gray-600 hover:text-sky-700 transition-colors"
+                className="transition-colors font-medium hover:text-blue-600"
+                style={{color: '#111827', fontSize: '16px'}}
               >
                 {item.label}
               </Link>
@@ -53,7 +54,8 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="block py-2 text-gray-600 hover:text-sky-700 transition-colors"
+                className="block py-3 transition-colors font-medium hover:text-blue-600"
+                style={{color: '#111827', fontSize: '17px'}}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}

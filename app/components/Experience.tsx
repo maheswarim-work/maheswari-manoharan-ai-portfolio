@@ -5,35 +5,35 @@ export default function Experience() {
   const { experience, education } = portfolioData
 
   return (
-    <section id="experience" className="py-20">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
+    <section id="experience" className="section-spacing" style={{background: '#FAFAFA'}}>
+      <div className="container mx-auto px-5 sm:px-6">
+        <h2 className="text-center mb-12">
           Experience & Education
         </h2>
         
         <div className="max-w-4xl mx-auto">
           {/* Work Experience */}
           <div className="mb-12">
-            <h3 className="text-2xl font-semibold text-gray-800 mb-6">Work Experience</h3>
+            <h3 className="mb-6">Work Experience</h3>
             {experience.map((job, index) => (
-              <div key={index} className="mb-8 bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-md border border-slate-200 hover:shadow-lg transition-shadow">
+              <div key={index} className="mb-6 card">
                 <div className="flex items-start justify-between mb-2">
                   <div>
-                    <h4 className="text-xl font-semibold text-gray-900">{job.position}</h4>
-                    <div className="flex items-center text-gray-600 mt-1">
-                      <Building2 size={16} className="mr-2" />
+                    <h3 className="mb-1" style={{fontSize: '20px'}}>{job.position}</h3>
+                    <div className="flex items-center mt-1" style={{color: '#4B5563'}}>
+                      <Building2 size={18} className="mr-2" style={{color: '#2563EB'}} />
                       <span>{job.company}</span>
                     </div>
                   </div>
-                  <div className="flex items-center text-gray-500 flex-shrink-0 ml-4">
-                    <Calendar size={16} className="mr-2" />
+                  <div className="flex items-center flex-shrink-0 ml-4" style={{color: '#6B7280'}}>
+                    <Calendar size={18} className="mr-2" style={{color: '#2563EB'}} />
                     <span className="text-sm">{job.duration}</span>
                   </div>
                 </div>
                 <ul className="mt-4 space-y-2">
                   {job.highlights.map((highlight, hIndex) => (
-                    <li key={hIndex} className="text-gray-700 text-sm flex">
-                      <span className="text-blue-700 mr-2 flex-shrink-0">•</span>
+                    <li key={hIndex} className="flex" style={{fontSize: '16px', lineHeight: '1.7'}}>
+                      <span className="mr-2 flex-shrink-0" style={{color: '#2563EB'}}>•</span>
                       <span>{highlight}</span>
                     </li>
                   ))}
@@ -44,12 +44,12 @@ export default function Experience() {
 
           {/* Education */}
           <div>
-            <h3 className="text-2xl font-semibold text-gray-800 mb-6">Education</h3>
+            <h3 className="mb-6">Education</h3>
             {education.map((edu, index) => (
-              <div key={index} className="mb-6 bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-md border border-slate-200 hover:shadow-lg transition-shadow">
-                <h4 className="text-xl font-semibold text-gray-900">{edu.degree}</h4>
-                <p className="text-gray-600 mt-1">{edu.institution}</p>
-                <p className="text-gray-700 mt-3">{edu.description}</p>
+              <div key={index} className="card">
+                <h3 style={{fontSize: '20px', marginBottom: '8px'}}>{edu.degree}</h3>
+                <p className="mt-1" style={{color: '#4B5563'}}>{edu.institution}</p>
+                <p className="mt-3">{edu.description}</p>
               </div>
             ))}
           </div>
