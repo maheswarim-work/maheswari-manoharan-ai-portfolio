@@ -52,3 +52,4 @@ terraform.tfstate*
 # Local deployment configs
 .vscode/settings.json
 .idea/
+.env
