@@ -7,34 +7,33 @@ export default function Certifications() {
   return (
     <section id="certifications" className="py-16">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-12" style={{color: '#0C4A6E'}}>
+        <h2 className="text-4xl font-bold text-center mb-12" style={{color: '#2563EB'}}>
           Certifications
         </h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {certifications.map((cert, index) => (
-            <div key={index} className="p-6 rounded-lg transition-all hover:scale-[1.02]" style={{
-              background: 'rgba(255, 255, 255, 0.85)',
-              backdropFilter: 'blur(10px)',
-              border: '2px solid rgba(6, 182, 212, 0.3)',
-              boxShadow: '0 4px 16px rgba(6, 182, 212, 0.2)'
+            <div key={index} className="p-6 rounded-lg transition-all hover:shadow-lg" style={{
+              background: '#FFFFFF',
+              borderLeft: '3px solid #14B8A6',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
             }}>
               <div className="flex items-start mb-4">
-                <Award className="mr-3 flex-shrink-0" size={24} style={{color: '#06B6D4'}} />
+                <Award className="mr-3 flex-shrink-0" size={24} style={{color: '#14B8A6'}} />
                 <div>
-                  <h3 className="text-lg font-semibold" style={{color: '#0E7490'}}>{cert.name}</h3>
-                  <p className="text-sm mt-1 font-medium" style={{color: '#155E75'}}>{cert.issuer}</p>
+                  <h3 className="text-lg font-semibold" style={{color: '#2563EB'}}>{cert.name}</h3>
+                  <p className="text-sm mt-1 font-medium" style={{color: '#374151'}}>{cert.issuer}</p>
                 </div>
               </div>
 
-              <div className="space-y-2 text-sm" style={{color: '#0C4A6E'}}>
+              <div className="space-y-2 text-sm" style={{color: '#1E293B'}}>
                 <div className="flex items-center">
-                  <Calendar size={14} className="mr-2" style={{color: '#22D3EE'}} />
-                  <span className="font-medium">Issued: {cert.issued}</span>
+                  <Calendar size={14} className="mr-2" style={{color: '#14B8A6'}} />
+                  <span>Issued: {cert.issued}</span>
                 </div>
                 <div className="flex items-center">
-                  <Clock size={14} className="mr-2" style={{color: '#22D3EE'}} />
-                  <span className="font-medium">Expires: {cert.expires}</span>
+                  <Clock size={14} className="mr-2" style={{color: '#14B8A6'}} />
+                  <span>Expires: {cert.expires}</span>
                 </div>
               </div>
             </div>

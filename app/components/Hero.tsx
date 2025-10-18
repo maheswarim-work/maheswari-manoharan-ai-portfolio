@@ -13,10 +13,10 @@ export default function Hero() {
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-gray-900 mb-4 px-4">
             <span className="text-gradient-pink">{personal.name}</span>
           </h1>
-          <h2 className="text-xl sm:text-2xl md:text-3xl mb-8 px-4 leading-relaxed" style={{color: '#1E3A8A', fontWeight: '600'}}>
+          <h2 className="text-xl sm:text-2xl md:text-3xl mb-8 px-4 leading-relaxed" style={{color: '#374151', fontWeight: '600'}}>
             {personal.title}
           </h2>
-          <p className="text-base sm:text-lg mb-6 px-4" style={{color: '#64748B', fontWeight: '500'}}>
+          <p className="text-base sm:text-lg mb-6 px-4" style={{color: '#64748B'}}>
             {personal.location}
           </p>
 
@@ -24,14 +24,14 @@ export default function Hero() {
             <a
               href="/Maheswari_Manoharan_Resume.pdf"
               download
-              className="inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all hover:-translate-y-1 text-sm"
+              className="inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all hover:shadow-lg text-sm"
               style={{
-                background: 'linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%)',
+                background: '#2563EB',
                 color: 'white',
-                boxShadow: '0 4px 12px rgba(59, 130, 246, 0.4)'
+                boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
               }}
-              onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 8px 20px rgba(59, 130, 246, 0.5)'}
-              onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 4px 12px rgba(59, 130, 246, 0.4)'}
+              onMouseEnter={(e) => e.currentTarget.style.background = '#1D4ED8'}
+              onMouseLeave={(e) => e.currentTarget.style.background = '#2563EB'}
             >
               <Download size={18} />
               <span>Resume (PDF)</span>
@@ -39,14 +39,14 @@ export default function Hero() {
             <a
               href="/Maheswari_Manoharan_Resume.docx"
               download
-              className="inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all hover:-translate-y-1 text-sm"
+              className="inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all hover:shadow-lg text-sm"
               style={{
-                background: 'linear-gradient(135deg, #06B6D4 0%, #0891B2 100%)',
+                background: '#14B8A6',
                 color: 'white',
-                boxShadow: '0 4px 12px rgba(6, 182, 212, 0.4)'
+                boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
               }}
-              onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 8px 20px rgba(6, 182, 212, 0.5)'}
-              onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 4px 12px rgba(6, 182, 212, 0.4)'}
+              onMouseEnter={(e) => e.currentTarget.style.background = '#0D9488'}
+              onMouseLeave={(e) => e.currentTarget.style.background = '#14B8A6'}
             >
               <FileText size={18} />
               <span>Resume (DOCX)</span>
@@ -58,48 +58,52 @@ export default function Hero() {
               href={personal.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3.5 rounded-full transition-all hover:scale-110"
+              className="p-3 rounded-lg transition-all hover:shadow-md"
               style={{
-                background: 'linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%)',
-                color: '#1E40AF'
+                background: '#FFFFFF',
+                color: '#2563EB',
+                border: '1px solid #E5E7EB'
               }}
             >
-              <Linkedin size={24} />
+              <Linkedin size={22} />
             </a>
             <a
               href={personal.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3.5 rounded-full transition-all hover:scale-110"
+              className="p-3 rounded-lg transition-all hover:shadow-md"
               style={{
-                background: 'linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 100%)',
-                color: '#0369A1'
+                background: '#FFFFFF',
+                color: '#14B8A6',
+                border: '1px solid #E5E7EB'
               }}
             >
-              <Github size={24} />
+              <Github size={22} />
             </a>
             <a
               href={`mailto:${personal.email}`}
-              className="p-3.5 rounded-full transition-all hover:scale-110"
+              className="p-3 rounded-lg transition-all hover:shadow-md"
               style={{
-                background: 'linear-gradient(135deg, #A5F3FC 0%, #67E8F9 100%)',
-                color: '#0E7490'
+                background: '#FFFFFF',
+                color: '#2563EB',
+                border: '1px solid #E5E7EB'
               }}
             >
-              <Mail size={24} />
+              <Mail size={22} />
             </a>
             {personal.twitter && (
               <a
                 href={personal.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3.5 rounded-full transition-all hover:scale-110"
+                className="p-3 rounded-lg transition-all hover:shadow-md"
                 style={{
-                  background: 'linear-gradient(135deg, #FED7AA 0%, #FDBA74 100%)',
-                  color: '#C2410C'
+                  background: '#FFFFFF',
+                  color: '#14B8A6',
+                  border: '1px solid #E5E7EB'
                 }}
               >
-                <Twitter size={24} />
+                <Twitter size={22} />
               </a>
             )}
           </div>
