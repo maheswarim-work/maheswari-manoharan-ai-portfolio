@@ -12,23 +12,23 @@ export default function Skills() {
   ]
 
   return (
-    <section id="skills" className="section-spacing">
-      <div className="container mx-auto px-5 sm:px-6">
-        <h2 className="text-center mb-12">
+    <section id="skills" className="py-20">
+      <div className="container mx-auto px-6">
+        <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
           Skills & Expertise
         </h2>
-
+        
         <div className="max-w-5xl mx-auto space-y-8">
           {skillCategories.map((category, index) => (
-            <div key={index} className="card">
-              <h3 className="mb-5">
+            <div key={index}>
+              <h3 className="text-xl font-semibold text-gray-800 mb-4">
                 {category.title}
               </h3>
               <div className="flex flex-wrap gap-3">
                 {category.items.map((skill, skillIndex) => (
                   <span
                     key={skillIndex}
-                    className="skill-pill"
+                    className="px-4 py-2 rounded-full text-sm font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors"
                   >
                     {skill}
                   </span>
