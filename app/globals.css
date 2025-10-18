@@ -69,17 +69,17 @@ strong, b {
   font-weight: 600;
 }
 
-/* Custom gradient utilities - Modern Professional Palette */
+/* Custom gradient utilities - Magenta Gradient Theme */
 .gradient-pink-mild {
-  background: linear-gradient(180deg, #F9FAFB 0%, #E0F2FE 100%);
+  background: linear-gradient(180deg, #FDF4FF 0%, #FAE8FF 50%, #F5D0FE 100%);
 }
 
 .gradient-pink-hover {
-  background: linear-gradient(135deg, #BFDBFE 0%, #93C5FD 50%, #60A5FA 100%);
+  background: linear-gradient(135deg, #F5D0FE 0%, #E879F9 50%, #D946EF 100%);
 }
 
 .text-gradient-pink {
-  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+  background: linear-gradient(135deg, #C026D3 0%, #D946EF 50%, #E879F9 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
