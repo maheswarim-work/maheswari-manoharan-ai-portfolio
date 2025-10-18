@@ -1,3 +1,5 @@
+'use client'
+
 import { portfolioData } from '../data/portfolio'
 import { Github, Linkedin, Mail, Twitter, Download, FileText } from 'lucide-react'
 
