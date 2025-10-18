@@ -28,7 +28,7 @@ export default function Skills() {
                 {category.items.map((skill, skillIndex) => (
                   <span
                     key={skillIndex}
-                    className="px-4 py-2 rounded-full text-sm font-medium bg-teal-50 text-teal-700 hover:bg-teal-100 transition-colors"
+                    className="px-4 py-2 rounded-full text-sm font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors"
                   >
                     {skill}
                   </span>
