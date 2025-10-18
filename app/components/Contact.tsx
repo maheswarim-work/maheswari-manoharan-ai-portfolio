@@ -7,19 +7,20 @@ export default function Contact() {
   const { personal } = portfolioData
 
   return (
-    <section id="contact" className="py-16" style={{background: 'linear-gradient(to bottom, #FFFFFF 0%, #F0F9FF 100%)'}}>
+    <section id="contact" className="py-16">
       <div className="container mx-auto px-5 sm:px-6">
-        <h2 className="text-center mb-6" style={{color: '#1E40AF', fontSize: '36px', fontWeight: '700'}}>
+        <h2 className="text-center mb-6" style={{color: '#0C4A6E', fontSize: '36px', fontWeight: '700'}}>
           Let's Connect
         </h2>
 
         <div className="max-w-xl mx-auto">
           <div className="card" style={{
-            background: 'white',
-            border: '1px solid #E5E7EB',
+            background: 'rgba(255, 255, 255, 0.9)',
+            backdropFilter: 'blur(10px)',
+            border: '2px solid rgba(6, 182, 212, 0.3)',
             borderRadius: '16px',
             padding: '48px 40px',
-            boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)'
+            boxShadow: '0 8px 24px rgba(6, 182, 212, 0.25)'
           }}>
             <div className="text-center">
               {/* Intro Text */}

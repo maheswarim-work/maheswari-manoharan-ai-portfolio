@@ -5,9 +5,9 @@ export default function About() {
   const { personal } = portfolioData
 
   return (
-    <section id="about" className="py-16" style={{background: 'linear-gradient(to bottom, #F0F9FF 0%, #FFFFFF 100%)'}}>
+    <section id="about" className="py-16">
       <div className="container mx-auto px-5 sm:px-6">
-        <h2 className="text-center mb-16" style={{color: '#1E40AF', fontSize: '36px', fontWeight: '700'}}>
+        <h2 className="text-center mb-16" style={{color: '#0C4A6E', fontSize: '36px', fontWeight: '700'}}>
           About Me
         </h2>
         <div className="max-w-6xl mx-auto">

@@ -69,9 +69,9 @@ strong, b {
   font-weight: 600;
 }
 
-/* Custom gradient utilities - Modern Vibrant Blue Spectrum */
+/* Custom gradient utilities - Modern Vibrant Blue-Teal Spectrum */
 .gradient-pink-mild {
-  background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 50%, #BFDBFE 100%);
+  background: linear-gradient(180deg, #E0F2FE 0%, #CFFAFE 25%, #A5F3FC 50%, #67E8F9 75%, #22D3EE 100%);
 }
 
 .gradient-pink-hover {
