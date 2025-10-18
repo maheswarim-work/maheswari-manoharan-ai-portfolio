@@ -69,18 +69,19 @@ strong, b {
   font-weight: 600;
 }
 
-/* Custom gradient utilities - Ocean Blue & Coral Theme */
+/* Custom gradient utilities - Modern Vibrant Blue Spectrum */
 .gradient-pink-mild {
-  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #ffffff 100%);
+  background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 50%, #BFDBFE 100%);
 }
 
 .gradient-pink-hover {
-  background: linear-gradient(135deg, #dbeafe 0%, #f0f9ff 50%, #ffffff 100%);
+  background: linear-gradient(135deg, #BFDBFE 0%, #93C5FD 50%, #60A5FA 100%);
 }
 
 .text-gradient-pink {
-  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
+  background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 50%, #06B6D4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-weight: 800;
 }

@@ -17,10 +17,18 @@ export default function Header() {
   ]
 
   return (
-    <header className="fixed top-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50 border-b border-slate-200">
+    <header className="fixed top-0 w-full backdrop-blur-md shadow-md z-50 border-b" style={{
+      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(239, 246, 255, 0.95) 100%)',
+      borderColor: '#93C5FD'
+    }}>
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="text-2xl font-bold text-gray-800">
+          <Link href="/" className="text-2xl font-bold" style={{
+            background: 'linear-gradient(135deg, #1E40AF 0%, #3B82F6 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text'
+          }}>
             MM
           </Link>
 
@@ -30,7 +38,10 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-gray-600 hover:text-sky-700 transition-colors"
+                className="font-medium transition-all hover:scale-105"
+                style={{color: '#475569'}}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#3B82F6'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#475569'}
               >
                 {item.label}
               </Link>
@@ -40,6 +51,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             className="md:hidden"
+            style={{color: '#3B82F6'}}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -53,7 +65,10 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="block py-2 text-gray-600 hover:text-sky-700 transition-colors"
+                className="block py-2 font-medium transition-colors"
+                style={{color: '#475569'}}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#3B82F6'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#475569'}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}

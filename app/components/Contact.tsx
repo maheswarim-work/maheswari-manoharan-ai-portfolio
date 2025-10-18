@@ -7,9 +7,9 @@ export default function Contact() {
   const { personal } = portfolioData
 
   return (
-    <section id="contact" className="py-16" style={{background: 'linear-gradient(to bottom, #FFFFFF 0%, #F8FAFC 100%)'}}>
+    <section id="contact" className="py-16" style={{background: 'linear-gradient(to bottom, #FFFFFF 0%, #F0F9FF 100%)'}}>
       <div className="container mx-auto px-5 sm:px-6">
-        <h2 className="text-center mb-6" style={{color: '#1E3A8A', fontSize: '36px', fontWeight: '700'}}>
+        <h2 className="text-center mb-6" style={{color: '#1E40AF', fontSize: '36px', fontWeight: '700'}}>
           Let's Connect
         </h2>
 
@@ -31,11 +31,14 @@ export default function Contact() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
                 <a
                   href={`mailto:${personal.email}`}
-                  className="inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded-lg font-semibold text-base transition-all hover:shadow-lg"
+                  className="inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded-lg font-semibold text-base transition-all hover:-translate-y-1"
                   style={{
-                    background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)',
-                    color: 'white'
+                    background: 'linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%)',
+                    color: 'white',
+                    boxShadow: '0 4px 12px rgba(59, 130, 246, 0.4)'
                   }}
+                  onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 8px 20px rgba(59, 130, 246, 0.5)'}
+                  onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 4px 12px rgba(59, 130, 246, 0.4)'}
                 >
                   <Mail size={20} />
                   <span>Email Me</span>
@@ -44,11 +47,20 @@ export default function Contact() {
                 <a
                   href="/Maheswari_Manoharan_Resume.pdf"
                   download
-                  className="inline-flex items-center justify-center space-x-2 px-6 py-3.5 rounded-lg font-medium text-base transition-all hover:bg-gray-100"
+                  className="inline-flex items-center justify-center space-x-2 px-6 py-3.5 rounded-lg font-medium text-base transition-all hover:-translate-y-1"
                   style={{
-                    background: 'white',
-                    color: '#2563EB',
-                    border: '2px solid #2563EB'
+                    background: 'linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%)',
+                    color: '#1E40AF',
+                    border: '2px solid #3B82F6',
+                    boxShadow: '0 2px 8px rgba(59, 130, 246, 0.2)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'linear-gradient(135deg, #BFDBFE 0%, #93C5FD 100%)'
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(59, 130, 246, 0.3)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%)'
+                    e.currentTarget.style.boxShadow = '0 2px 8px rgba(59, 130, 246, 0.2)'
                   }}
                 >
                   <Download size={18} />
@@ -57,16 +69,16 @@ export default function Contact() {
               </div>
 
               {/* Social Links */}
-              <div className="flex justify-center items-center gap-8 pt-6 border-t" style={{borderColor: '#E5E7EB'}}>
+              <div className="flex justify-center items-center gap-8 pt-6 border-t" style={{borderColor: '#DBEAFE'}}>
                 <a
                   href={personal.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 transition-all hover:scale-110 group"
-                  style={{color: '#6B7280'}}
+                  style={{color: '#475569'}}
                 >
-                  <Linkedin size={22} className="group-hover:text-blue-600" style={{transition: 'color 0.2s'}} />
-                  <span className="text-sm font-medium group-hover:text-blue-600" style={{transition: 'color 0.2s'}}>LinkedIn</span>
+                  <Linkedin size={22} style={{color: '#3B82F6', transition: 'color 0.2s'}} className="group-hover:!text-blue-700" />
+                  <span className="text-sm font-medium group-hover:text-blue-700" style={{transition: 'color 0.2s'}}>LinkedIn</span>
                 </a>
 
                 <a
@@ -74,10 +86,10 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 transition-all hover:scale-110 group"
-                  style={{color: '#6B7280'}}
+                  style={{color: '#475569'}}
                 >
-                  <Github size={22} className="group-hover:text-blue-600" style={{transition: 'color 0.2s'}} />
-                  <span className="text-sm font-medium group-hover:text-blue-600" style={{transition: 'color 0.2s'}}>GitHub</span>
+                  <Github size={22} style={{color: '#06B6D4', transition: 'color 0.2s'}} className="group-hover:!text-cyan-700" />
+                  <span className="text-sm font-medium group-hover:text-cyan-700" style={{transition: 'color 0.2s'}}>GitHub</span>
                 </a>
 
                 {personal.twitter && (
@@ -86,10 +98,10 @@ export default function Contact() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 transition-all hover:scale-110 group"
-                    style={{color: '#6B7280'}}
+                    style={{color: '#475569'}}
                   >
-                    <Twitter size={22} className="group-hover:text-blue-600" style={{transition: 'color 0.2s'}} />
-                    <span className="text-sm font-medium group-hover:text-blue-600" style={{transition: 'color 0.2s'}}>Twitter</span>
+                    <Twitter size={22} style={{color: '#F59E0B', transition: 'color 0.2s'}} className="group-hover:!text-amber-700" />
+                    <span className="text-sm font-medium group-hover:text-amber-700" style={{transition: 'color 0.2s'}}>Twitter</span>
                   </a>
                 )}
               </div>
