@@ -60,7 +60,7 @@ export default function About() {
                     Cloud Architecture
                   </h3>
                   <p style={{color: '#374151', lineHeight: '1.8', fontSize: '15px'}}>
-                    Designing and implementing scalable cloud solutions across AWS, Azure, and modern cloud platforms with expertise in microservices and serverless architectures.
+                    Design and implement scalable cloud solutions on AWS and Azure using Python and Java, with expertise in microservices and serverless architectures.
                   </p>
                 </div>
               </div>
