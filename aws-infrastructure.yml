@@ -69,7 +69,7 @@ Resources:
     Condition: UseCloudFrontCDN
     Properties:
       OriginAccessControlConfig:
-        Name: !Sub '${AWS::StackName}-OAC'
+        Name: !Sub '${AWS::StackName}-OAC-${AWS::AccountId}'
         OriginAccessControlOriginType: s3
         SigningBehavior: always
         SigningProtocol: sigv4
