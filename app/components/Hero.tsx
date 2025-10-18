@@ -6,15 +6,15 @@ export default function Hero() {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-16">
-      <div className="container mx-auto px-6 py-20">
-        <div className="text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-4">
+      <div className="container mx-auto px-4 sm:px-6 py-20">
+        <div className="text-center max-w-4xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-gray-900 mb-4 px-4">
             <span className="text-gradient-pink">{personal.name}</span>
           </h1>
-          <h2 className="text-2xl md:text-3xl text-gray-600 mb-8">
+          <h2 className="text-xl sm:text-2xl md:text-3xl text-gray-600 mb-8 px-4 leading-relaxed">
             {personal.title}
           </h2>
-          <p className="text-lg text-gray-500 mb-8">
+          <p className="text-base sm:text-lg text-gray-500 mb-8 px-4">
             {personal.location}
           </p>
           <div className="flex justify-center space-x-4">
@@ -22,7 +22,7 @@ export default function Hero() {
               href={personal.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 bg-slate-100 text-blue-700 rounded-full hover:bg-slate-200 transition-all hover:scale-110"
+              className="p-3 bg-sky-100 text-sky-700 rounded-full hover:bg-sky-200 transition-all hover:scale-110"
             >
               <Linkedin size={24} />
             </a>
@@ -30,13 +30,13 @@ export default function Hero() {
               href={personal.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 bg-slate-100 text-blue-700 rounded-full hover:bg-slate-200 transition-all hover:scale-110"
+              className="p-3 bg-sky-100 text-sky-700 rounded-full hover:bg-sky-200 transition-all hover:scale-110"
             >
               <Github size={24} />
             </a>
             <a
               href={`mailto:${personal.email}`}
-              className="p-3 bg-slate-100 text-blue-700 rounded-full hover:bg-slate-200 transition-all hover:scale-110"
+              className="p-3 bg-sky-100 text-sky-700 rounded-full hover:bg-sky-200 transition-all hover:scale-110"
             >
               <Mail size={24} />
             </a>
@@ -45,7 +45,7 @@ export default function Hero() {
                 href={personal.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-slate-100 text-blue-700 rounded-full hover:bg-slate-200 transition-all hover:scale-110"
+                className="p-3 bg-sky-100 text-sky-700 rounded-full hover:bg-sky-200 transition-all hover:scale-110"
               >
                 <Twitter size={24} />
               </a>

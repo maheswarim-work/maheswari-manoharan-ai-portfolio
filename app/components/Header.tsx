@@ -30,7 +30,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-gray-600 hover:text-blue-700 transition-colors"
+                className="text-gray-600 hover:text-sky-700 transition-colors"
               >
                 {item.label}
               </Link>
@@ -53,7 +53,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="block py-2 text-gray-600 hover:text-teal-600 transition-colors"
+                className="block py-2 text-gray-600 hover:text-sky-700 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
