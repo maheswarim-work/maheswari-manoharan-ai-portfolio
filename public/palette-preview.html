@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Palette Examples - Maheswari Manoharan Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+            font-size: 32px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .palette-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .palette-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .palette-header {
+            padding: 30px;
+            color: white;
+            position: relative;
+        }
+
+        .palette-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .palette-desc {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .palette-body {
+            padding: 30px;
+        }
+
+        .sample-section {
+            margin-bottom: 20px;
+        }
+
+        .sample-title {
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .sample-text {
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .sample-button {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .sample-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .color-swatches {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .swatch {
+            flex: 1;
+            min-width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-end;
+            padding: 8px;
+            font-size: 10px;
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Palette 1: Deep Teal & Charcoal */
+        .palette1 .palette-header {
+            background: linear-gradient(135deg, #0d9488 0%, #134e4a 100%);
+        }
+        .palette1 .palette-body {
+            background: #f8fafc;
+            color: #1e293b;
+        }
+        .palette1 .sample-button {
+            background: #14b8a6;
+            color: white;
+        }
+
+        /* Palette 2: Navy & Gold */
+        .palette2 .palette-header {
+            background: linear-gradient(135deg, #1e40af 0%, #172554 100%);
+        }
+        .palette2 .palette-body {
+            background: #fefce8;
+            color: #0f172a;
+        }
+        .palette2 .sample-button {
+            background: #f59e0b;
+            color: white;
+        }
+
+        /* Palette 3: Forest Green & Slate */
+        .palette3 .palette-header {
+            background: linear-gradient(135deg, #047857 0%, #064e3b 100%);
+        }
+        .palette3 .palette-body {
+            background: #f1f5f9;
+            color: #334155;
+        }
+        .palette3 .sample-button {
+            background: #10b981;
+            color: white;
+        }
+
+        /* Palette 4: Royal Purple & Silver */
+        .palette4 .palette-header {
+            background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+        }
+        .palette4 .palette-body {
+            background: #f8fafc;
+            color: #1e293b;
+        }
+        .palette4 .sample-button {
+            background: #a78bfa;
+            color: white;
+        }
+
+        /* Palette 5: Crimson & Charcoal */
+        .palette5 .palette-header {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+        }
+        .palette5 .palette-body {
+            background: #fafafa;
+            color: #171717;
+        }
+        .palette5 .sample-button {
+            background: #f87171;
+            color: white;
+        }
+
+        /* Palette 6: Ocean Blue & Coral */
+        .palette6 .palette-header {
+            background: linear-gradient(135deg, #0284c7 0%, #0c4a6e 100%);
+        }
+        .palette6 .palette-body {
+            background: #f0f9ff;
+            color: #0f172a;
+        }
+        .palette6 .sample-button {
+            background: #f97316;
+            color: white;
+        }
+
+        /* Palette 7: Slate & Cyan */
+        .palette7 .palette-header {
+            background: linear-gradient(135deg, #06b6d4 0%, #0e7490 100%);
+        }
+        .palette7 .palette-body {
+            background: #f8fafc;
+            color: #334155;
+        }
+        .palette7 .sample-button {
+            background: #22d3ee;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Color Palette Examples for Portfolio</h1>
+
+        <div class="grid">
+            <!-- Palette 1 -->
+            <div class="palette-card palette1">
+                <div class="palette-header">
+                    <div class="palette-name">1. Deep Teal & Charcoal</div>
+                    <div class="palette-desc">Modern, professional, tech-forward</div>
+                </div>
+                <div class="palette-body">
+                    <div class="sample-section">
+                        <div class="sample-title">Maheswari Manoharan</div>
+                        <div class="sample-text">Software Engineering Professional specializing in modern cloud technologies. With 12+ years of expertise in AWS, microservices architecture, and team leadership.</div>
+                        <a href="#" class="sample-button">View Projects</a>
+                    </div>
+                    <div class="color-swatches">
+                        <div class="swatch" style="background: #0d9488;">Primary</div>
+                        <div class="swatch" style="background: #134e4a;">Secondary</div>
+                        <div class="swatch" style="background: #14b8a6;">Accent</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Palette 2 -->
+            <div class="palette-card palette2">
+                <div class="palette-header">
+                    <div class="palette-name">2. Navy & Gold (Executive)</div>
+                    <div class="palette-desc">Classic, trustworthy, sophisticated</div>
+                </div>
+                <div class="palette-body">
+                    <div class="sample-section">
+                        <div class="sample-title">Maheswari Manoharan</div>
+                        <div class="sample-text">Software Engineering Professional specializing in modern cloud technologies. With 12+ years of expertise in AWS, microservices architecture, and team leadership.</div>
+                        <a href="#" class="sample-button">View Projects</a>
+                    </div>
+                    <div class="color-swatches">
+                        <div class="swatch" style="background: #1e40af;">Primary</div>
+                        <div class="swatch" style="background: #172554;">Secondary</div>
+                        <div class="swatch" style="background: #f59e0b;">Accent</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Palette 3 -->
+            <div class="palette-card palette3">
+                <div class="palette-header">
+                    <div class="palette-name">3. Forest Green & Slate</div>
+                    <div class="palette-desc">Natural, calm, professional</div>
+                </div>
+                <div class="palette-body">
+                    <div class="sample-section">
+                        <div class="sample-title">Maheswari Manoharan</div>
+                        <div class="sample-text">Software Engineering Professional specializing in modern cloud technologies. With 12+ years of expertise in AWS, microservices architecture, and team leadership.</div>
+                        <a href="#" class="sample-button">View Projects</a>
+                    </div>
+                    <div class="color-swatches">
+                        <div class="swatch" style="background: #047857;">Primary</div>
+                        <div class="swatch" style="background: #064e3b;">Secondary</div>
+                        <div class="swatch" style="background: #10b981;">Accent</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Palette 4 -->
+            <div class="palette-card palette4">
+                <div class="palette-header">
+                    <div class="palette-name">4. Royal Purple & Silver</div>
+                    <div class="palette-desc">Creative, modern, distinctive</div>
+                </div>
+                <div class="palette-body">
+                    <div class="sample-section">
+                        <div class="sample-title">Maheswari Manoharan</div>
+                        <div class="sample-text">Software Engineering Professional specializing in modern cloud technologies. With 12+ years of expertise in AWS, microservices architecture, and team leadership.</div>
+                        <a href="#" class="sample-button">View Projects</a>
+                    </div>
+                    <div class="color-swatches">
+                        <div class="swatch" style="background: #7c3aed;">Primary</div>
+                        <div class="swatch" style="background: #5b21b6;">Secondary</div>
+                        <div class="swatch" style="background: #a78bfa;">Accent</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Palette 5 -->
+            <div class="palette-card palette5">
+                <div class="palette-header">
+                    <div class="palette-name">5. Crimson & Charcoal (Bold)</div>
+                    <div class="palette-desc">Bold, confident, memorable</div>
+                </div>
+                <div class="palette-body">
+                    <div class="sample-section">
+                        <div class="sample-title">Maheswari Manoharan</div>
+                        <div class="sample-text">Software Engineering Professional specializing in modern cloud technologies. With 12+ years of expertise in AWS, microservices architecture, and team leadership.</div>
+                        <a href="#" class="sample-button">View Projects</a>
+                    </div>
+                    <div class="color-swatches">
+                        <div class="swatch" style="background: #dc2626;">Primary</div>
+                        <div class="swatch" style="background: #991b1b;">Secondary</div>
+                        <div class="swatch" style="background: #f87171;">Accent</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Palette 6 -->
+            <div class="palette-card palette6">
+                <div class="palette-header">
+                    <div class="palette-name">6. Ocean Blue & Coral</div>
+                    <div class="palette-desc">Fresh, approachable, modern</div>
+                </div>
+                <div class="palette-body">
+                    <div class="sample-section">
+                        <div class="sample-title">Maheswari Manoharan</div>
+                        <div class="sample-text">Software Engineering Professional specializing in modern cloud technologies. With 12+ years of expertise in AWS, microservices architecture, and team leadership.</div>
+                        <a href="#" class="sample-button">View Projects</a>
+                    </div>
+                    <div class="color-swatches">
+                        <div class="swatch" style="background: #0284c7;">Primary</div>
+                        <div class="swatch" style="background: #0c4a6e;">Secondary</div>
+                        <div class="swatch" style="background: #f97316;">Accent</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Palette 7 -->
+            <div class="palette-card palette7">
+                <div class="palette-header">
+                    <div class="palette-name">7. Slate & Cyan (Tech)</div>
+                    <div class="palette-desc">Clean, tech-focused, professional</div>
+                </div>
+                <div class="palette-body">
+                    <div class="sample-section">
+                        <div class="sample-title">Maheswari Manoharan</div>
+                        <div class="sample-text">Software Engineering Professional specializing in modern cloud technologies. With 12+ years of expertise in AWS, microservices architecture, and team leadership.</div>
+                        <a href="#" class="sample-button">View Projects</a>
+                    </div>
+                    <div class="color-swatches">
+                        <div class="swatch" style="background: #06b6d4;">Primary</div>
+                        <div class="swatch" style="background: #0e7490;">Secondary</div>
+                        <div class="swatch" style="background: #22d3ee;">Accent</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
