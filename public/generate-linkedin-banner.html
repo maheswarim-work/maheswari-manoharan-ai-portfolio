@@ -72,121 +72,185 @@
             // Clear canvas
             ctx.clearRect(0, 0, 1584, 396);
 
-            // Background gradient - soft pink
+            // Rich gradient background
             const bgGradient = ctx.createLinearGradient(0, 0, 1584, 396);
             bgGradient.addColorStop(0, '#ffeef8');
-            bgGradient.addColorStop(0.5, '#fff5f9');
+            bgGradient.addColorStop(0.4, '#fff0f7');
+            bgGradient.addColorStop(0.7, '#fff5f9');
             bgGradient.addColorStop(1, '#ffffff');
             ctx.fillStyle = bgGradient;
             ctx.fillRect(0, 0, 1584, 396);
 
-            // Decorative circles - subtle
+            // Large decorative shapes - more visual interest
             ctx.save();
 
-            // Top right decorative circle
-            const circle1 = ctx.createRadialGradient(1350, 150, 0, 1350, 150, 300);
-            circle1.addColorStop(0, 'rgba(236,72,153,0.08)');
-            circle1.addColorStop(1, 'rgba(236,72,153,0)');
+            // Large pink circle - top right
+            const circle1 = ctx.createRadialGradient(1400, 80, 0, 1400, 80, 350);
+            circle1.addColorStop(0, 'rgba(236,72,153,0.15)');
+            circle1.addColorStop(0.5, 'rgba(244,114,182,0.08)');
+            circle1.addColorStop(1, 'rgba(244,114,182,0)');
             ctx.fillStyle = circle1;
-            ctx.fillRect(1050, 0, 600, 400);
+            ctx.fillRect(1050, -100, 600, 600);
 
-            // Bottom left subtle accent
-            const circle2 = ctx.createRadialGradient(200, 350, 0, 200, 350, 200);
-            circle2.addColorStop(0, 'rgba(244,114,182,0.06)');
-            circle2.addColorStop(1, 'rgba(244,114,182,0)');
+            // Accent circle - bottom center
+            const circle2 = ctx.createRadialGradient(800, 350, 0, 800, 350, 300);
+            circle2.addColorStop(0, 'rgba(249,168,212,0.12)');
+            circle2.addColorStop(1, 'rgba(249,168,212,0)');
             ctx.fillStyle = circle2;
-            ctx.fillRect(0, 150, 400, 300);
+            ctx.fillRect(500, 50, 600, 400);
+
+            // Pattern overlay - geometric shapes
+            ctx.globalAlpha = 0.03;
+            for (let i = 0; i < 30; i++) {
+                ctx.fillStyle = '#ec4899';
+                const x = Math.random() * 1584;
+                const y = Math.random() * 396;
+                const size = Math.random() * 40 + 10;
+                ctx.beginPath();
+                ctx.arc(x, y, size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            ctx.globalAlpha = 1;
 
             ctx.restore();
 
-            // Profile photo area is approx 30-400px from left, so start content after 450px
-            const contentStartX = 480;
-            const contentCenterY = 198; // Center of 396px height
+            // Content area - avoid profile photo (0-400px)
+            const contentStartX = 500;
 
-            // Main heading - centered vertically in upper half
-            const headingY = 120;
+            // Large decorative accent bar on the right
+            ctx.save();
+            const accentGradient = ctx.createLinearGradient(1400, 0, 1584, 396);
+            accentGradient.addColorStop(0, 'rgba(236,72,153,0.15)');
+            accentGradient.addColorStop(1, 'rgba(244,114,182,0.2)');
+            ctx.fillStyle = accentGradient;
+            ctx.beginPath();
+            ctx.roundRect(1450, 0, 200, 396, [0, 0, 0, 0]);
+            ctx.fill();
+            ctx.restore();
+
+            // Main name with gradient
+            const nameY = 100;
 
             ctx.save();
-            const nameGradient = ctx.createLinearGradient(contentStartX, 0, contentStartX + 700, 0);
+            const nameGradient = ctx.createLinearGradient(contentStartX, nameY - 30, contentStartX + 600, nameY);
             nameGradient.addColorStop(0, '#ec4899');
-            nameGradient.addColorStop(1, '#f472b6');
+            nameGradient.addColorStop(0.6, '#f472b6');
+            nameGradient.addColorStop(1, '#f9a8d4');
             ctx.fillStyle = nameGradient;
-            ctx.font = '800 62px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.font = '900 68px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
             ctx.textAlign = 'left';
-            ctx.fillText('Maheswari Manoharan', contentStartX, headingY);
+            ctx.shadowColor = 'rgba(236,72,153,0.2)';
+            ctx.shadowBlur = 15;
+            ctx.shadowOffsetY = 4;
+            ctx.fillText('Maheswari Manoharan', contentStartX, nameY);
             ctx.restore();
 
-            // Subtitle line 1
+            // Professional title with decorative line
+            const titleY = nameY + 60;
+
+            // Decorative line before title
+            ctx.fillStyle = '#ec4899';
+            ctx.fillRect(contentStartX, titleY - 20, 5, 35);
+
             ctx.fillStyle = '#1e293b';
-            ctx.font = '600 32px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-            ctx.fillText('Software Engineering Professional', contentStartX, headingY + 55);
+            ctx.font = '700 36px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.fillText('Software Engineering Professional', contentStartX + 20, titleY);
 
-            // Subtitle line 2
-            ctx.fillStyle = '#64748b';
-            ctx.font = '500 26px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-            ctx.fillText('AI-Powered Cloud Technologies | 12+ Years Experience', contentStartX, headingY + 95);
+            // Subtitle
+            const subtitleY = titleY + 45;
+            ctx.fillStyle = '#475569';
+            ctx.font = '600 28px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.fillText('AI-Powered Cloud Technologies  •  12+ Years Experience  •  3 Certifications', contentStartX + 20, subtitleY);
 
-            // Tech stack badges - horizontal row
-            const techs = ['AWS', 'Azure', 'Python', 'Java', 'AI/ML', 'Terraform'];
-            const badgeY = headingY + 155;
-            let badgeX = contentStartX;
+            // Tech stack with icons/badges
+            const badgesY = subtitleY + 70;
+            const badges = [
+                { name: 'AWS', color: '#FF9900' },
+                { name: 'Azure', color: '#0078D4' },
+                { name: 'Python', color: '#3776AB' },
+                { name: 'Java', color: '#007396' },
+                { name: 'AI/ML', color: '#ec4899' },
+                { name: 'Terraform', color: '#7B42BC' }
+            ];
 
-            ctx.font = '600 19px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            let badgeX = contentStartX + 20;
+            ctx.font = '700 20px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
-            techs.forEach((tech) => {
-                const textWidth = ctx.measureText(tech).width;
-                const badgeWidth = textWidth + 36;
+            badges.forEach((badge) => {
+                const textWidth = ctx.measureText(badge.name).width;
+                const badgeWidth = textWidth + 44;
 
-                // Badge background
-                ctx.fillStyle = 'white';
-                ctx.strokeStyle = 'rgba(236,72,153,0.25)';
-                ctx.lineWidth = 2;
+                // Badge with gradient
+                ctx.save();
+                const badgeGradient = ctx.createLinearGradient(badgeX, badgesY - 20, badgeX, badgesY + 20);
+                badgeGradient.addColorStop(0, 'white');
+                badgeGradient.addColorStop(1, '#fef2f2');
+                ctx.fillStyle = badgeGradient;
+                ctx.shadowColor = 'rgba(0,0,0,0.08)';
+                ctx.shadowBlur = 10;
+                ctx.shadowOffsetY = 3;
                 ctx.beginPath();
-                ctx.roundRect(badgeX, badgeY - 18, badgeWidth, 40, 20);
+                ctx.roundRect(badgeX, badgesY - 22, badgeWidth, 44, 22);
                 ctx.fill();
-                ctx.stroke();
+                ctx.restore();
 
-                // Badge text
-                ctx.fillStyle = '#ec4899';
+                // Colored left border
+                ctx.fillStyle = badge.color;
+                ctx.beginPath();
+                ctx.roundRect(badgeX + 3, badgesY - 19, 4, 38, 2);
+                ctx.fill();
+
+                // Text
+                ctx.fillStyle = '#1e293b';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
-                ctx.fillText(tech, badgeX + badgeWidth / 2, badgeY + 2);
+                ctx.fillText(badge.name, badgeX + badgeWidth / 2, badgesY);
 
-                badgeX += badgeWidth + 14;
+                badgeX += badgeWidth + 16;
             });
 
-            // Portfolio URL - prominent in upper right
-            const urlX = 1120;
-            const urlY = 60;
+            // Portfolio URL card - bottom right with enhanced styling
+            const urlX = 1050;
+            const urlY = 310;
 
             ctx.save();
-            ctx.fillStyle = 'white';
-            ctx.shadowColor = 'rgba(236,72,153,0.2)';
-            ctx.shadowBlur = 20;
-            ctx.shadowOffsetY = 5;
+            const urlGradient = ctx.createLinearGradient(urlX, urlY, urlX + 380, urlY + 60);
+            urlGradient.addColorStop(0, 'white');
+            urlGradient.addColorStop(1, '#fff5f9');
+            ctx.fillStyle = urlGradient;
+            ctx.shadowColor = 'rgba(236,72,153,0.25)';
+            ctx.shadowBlur = 25;
+            ctx.shadowOffsetY = 8;
             ctx.beginPath();
-            ctx.roundRect(urlX, urlY, 410, 58, 29);
+            ctx.roundRect(urlX, urlY, 380, 60, 30);
             ctx.fill();
             ctx.restore();
 
-            // Border
-            ctx.strokeStyle = 'rgba(236,72,153,0.2)';
-            ctx.lineWidth = 2;
+            // Pink border
+            ctx.strokeStyle = '#ec4899';
+            ctx.lineWidth = 3;
             ctx.beginPath();
-            ctx.roundRect(urlX, urlY, 410, 58, 29);
+            ctx.roundRect(urlX, urlY, 380, 60, 30);
             ctx.stroke();
 
-            // Green online indicator
+            // Active indicator
             ctx.fillStyle = '#10b981';
             ctx.beginPath();
-            ctx.arc(urlX + 28, urlY + 29, 6, 0, Math.PI * 2);
+            ctx.arc(urlX + 30, urlY + 30, 7, 0, Math.PI * 2);
             ctx.fill();
+
+            // Pulse ring
+            ctx.strokeStyle = 'rgba(16,185,129,0.3)';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(urlX + 30, urlY + 30, 12, 0, Math.PI * 2);
+            ctx.stroke();
 
             // URL text
             ctx.fillStyle = '#1e293b';
-            ctx.font = '700 24px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.font = '800 26px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
             ctx.textAlign = 'left';
-            ctx.fillText('maheswari-manoharan.ai', urlX + 50, urlY + 34);
+            ctx.fillText('maheswari-manoharan.ai', urlX + 55, urlY + 35);
         }
 
         function updatePreview() {
