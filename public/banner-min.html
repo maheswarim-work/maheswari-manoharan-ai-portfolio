@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>LinkedIn Banner – Pill Skills + Modern Patterns (1584×396)</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{ --accent:#ec4899; }
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#f5f5f5;margin:0;padding:24px}
+  #card{max-width:1584px;margin:0 auto;background:#fff;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,.08);padding:16px}
+  .toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px}
+  .group{display:flex;gap:10px;align-items:center}
+  button{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:12px 18px;font-weight:800;cursor:pointer}
+  button:hover{filter:brightness(.97)}
+  label{font-size:12px;color:#334155;font-weight:700}
+  select,input[type="checkbox"]{accent-color:#ec4899}
+  .chips{display:flex;gap:10px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+  <h1 style="margin:0 0 6px 0">LinkedIn Banner – Pill Skills + Modern Patterns</h1>
+  <small>Exact size: <b>1584×396</b>. Toggle any pattern on/off. Left safe area keeps content clear of your profile photo.</small>
+
+  <div id="card">
+    <canvas id="c" width="1584" height="396" style="display:none"></canvas>
+    <canvas id="p" width="1584" height="396" style="width:100%;height:auto;border-radius:10px"></canvas>
+
+    <div class="toolbar">
+      <div class="group">
+        <button id="download">Download PNG</button>
+        <button id="theme">Toggle Light/Dark</button>
+      </div>
+
+      <div class="group">
+        <label>Safe Left
+          <select id="safe">
+            <option>480</option><option selected>520</option><option>540</option><option>560</option>
+          </select> px
+        </label>
+        <label>Left Shift
+          <select id="shift">
+            <option>0</option><option selected>40</option><option>60</option><option>80</option>
+          </select> px
+        </label>
+      </div>
+
+      <div class="group" style="gap:16px">
+        <label><input type="checkbox" id="pat-waves" checked /> Waves</label>
+        <label><input type="checkbox" id="pat-diag"  checked /> Diagonal Mesh</label>
+        <label><input type="checkbox" id="pat-dots"  checked /> Dotted Grid</label>
+        <label><input type="checkbox" id="pat-hex"   /> Hex Mesh</label>
+        <label><input type="checkbox" id="pat-bokeh" /> Soft Bokeh</label>
+      </div>
+    </div>
+  </div>
+
+<script>
+/*** CONFIG ***/
+const CFG = {
+  name: "Maheswari Manoharan",
+  title: "Software Engineering Professional",
+  subtitle: "AI-Powered Cloud Technologies",
+  skillRows: [
+    ["Python","Java","AWS","Azure","Serverless"],
+    ["Terraform","GitHub Actions","DevOps","MLOps"],
+    ["React Native","Next.js","Claude Code","Cursor AI"],
+    ["Databricks","Snowflake","SQL","Technical Lead"]
+  ],
+  theme: "light",
+  SAFE_LEFT: 520,
+  SHIFT_LEFT: 40, // moves all content slightly left for balance
+  patterns: { waves:true, diagonal:true, dots:true, hex:false, bokeh:false }
+};
+/*** CONSTANTS ***/
+const W=1584, H=396;
+const c=document.getElementById('c'), ctx=c.getContext('2d');
+const p=document.getElementById('p'), pctx=p.getContext('2d');
+
+/*** UTIL ***/
+function rrect(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);
+  ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
+
+function bgGradient(theme){
+  const g=ctx.createLinearGradient(0,0,W,H);
+  if(theme==="light"){ g.addColorStop(0,"#fff1f7"); g.addColorStop(1,"#ffffff"); }
+  else{ g.addColorStop(0,"#1b0f16"); g.addColorStop(1,"#2a1220"); }
+  return g;
+}
+
+/*** PATTERNS ***/
+// 1) Enhanced Waves
+function drawWaves(theme){
+  const off=document.createElement('canvas'); off.width=W; off.height=H;
+  const cx=off.getContext('2d');
+  function wave(yBase, amp, freq, phase, width, alpha){
+    const grad=cx.createLinearGradient(0,yBase-amp,W,yBase+amp);
+    if(theme==="light"){ grad.addColorStop(0,"rgba(236,72,153,0.40)"); grad.addColorStop(1,"rgba(244,114,182,0.22)"); }
+    else{ grad.addColorStop(0,"rgba(255,185,220,0.45)"); grad.addColorStop(1,"rgba(255,255,255,0.25)"); }
+    cx.strokeStyle=grad; cx.globalAlpha=alpha; cx.lineWidth=width;
+    cx.beginPath(); const step=4;
+    for(let x=0;x<=W;x+=step){ const y=yBase + Math.sin((x+phase)/freq)*amp; (x===0)?cx.moveTo(x,y):cx.lineTo(x,y); }
+    cx.stroke();
+  }
+  cx.filter="blur(0.35px)"; cx.globalCompositeOperation=theme==="light"?"source-over":"screen";
+  wave(122,10,64,0,1.8,0.35);
+  wave(166,8, 52,40,1.6,0.30);
+  wave(210,11,78,85,2.0,0.28);
+  wave(254,6, 46,120,1.4,0.30);
+  ctx.drawImage(off,0,0);
+}
+// 2) Diagonal Mesh
+function drawDiagonal(theme){
+  ctx.save();
+  ctx.strokeStyle = theme==="light"?"rgba(236,72,153,.08)":"rgba(255,255,255,.10)";
+  ctx.lineWidth = 1;
+  const step=22;
+  for(let x=-H; x<W+H; x+=step){ ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x+H,H); ctx.stroke(); }
+  ctx.restore();
+}
+// 3) Dotted Grid
+function drawDotted(theme){
+  ctx.save(); ctx.globalAlpha= theme==="light"?0.22:0.20;
+  ctx.fillStyle = theme==="light"?"#f4a6cd":"#ffffff";
+  const s=28, r=1.6;
+  for(let y=s/2;y<H;y+=s){ for(let x=s/2;x<W;x+=s){ ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fill(); } }
+  ctx.restore();
+}
+// 4) Hex Mesh
+function drawHex(theme){
+  ctx.save();
+  ctx.strokeStyle = theme==="light"?"rgba(236,72,153,.12)":"rgba(255,255,255,.16)";
+  ctx.lineWidth=0.9;
+  const size=18, w=size*2, h=Math.sqrt(3)*size;
+  for(let row=0; row<H/h+2; row++){
+    const y=row*h, xOffset=(row%2)*size;
+    for(let col=0; col<W/w+2; col++){
+      const x=col*w + xOffset;
+      ctx.beginPath();
+      for(let k=0;k<6;k++){ const a=Math.PI/3*k; const px=x+size*Math.cos(a), py=y+size*Math.sin(a); (k===0)?ctx.moveTo(px,py):ctx.lineTo(px,py); }
+      ctx.closePath(); ctx.stroke();
+    }
+  }
+  ctx.restore();
+}
+// 5) Soft Bokeh
+function drawBokeh(theme){
+  ctx.save();
+  const n=14;
+  for(let i=0;i<n;i++){
+    const x=Math.random()*W, y=Math.random()*H, r=40+Math.random()*90;
+    const g=ctx.createRadialGradient(x,y,0,x,y,r);
+    g.addColorStop(0, theme==="light"?"rgba(236,72,153,.10)":"rgba(255,255,255,.10)");
+    g.addColorStop(1, "rgba(0,0,0,0)");
+    ctx.fillStyle=g; ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fill();
+  }
+  ctx.restore();
+}
+
+/*** DRAW ***/
+function draw(){
+  const theme=CFG.theme;
+  const SAFE_LEFT=CFG.SAFE_LEFT;
+  const SHIFT=CFG.SHIFT_LEFT;
+  // center of usable area (right side) with slight left shift
+  const cx = SAFE_LEFT + (W - SAFE_LEFT)/2 - SHIFT;
+  const usableW = W - SAFE_LEFT - 24;
+
+  // background
+  ctx.clearRect(0,0,W,H);
+  ctx.fillStyle = bgGradient(theme); ctx.fillRect(0,0,W,H);
+
+  // apply patterns per toggles (order gives nice blend)
+  if(CFG.patterns.dots)     drawDotted(theme);
+  if(CFG.patterns.diagonal) drawDiagonal(theme);
+  if(CFG.patterns.hex)      drawHex(theme);
+  if(CFG.patterns.bokeh)    drawBokeh(theme);
+  if(CFG.patterns.waves)    drawWaves(theme);
+
+  // headline
+  const nameGrad=ctx.createLinearGradient(cx-220,90,cx+220,140);
+  nameGrad.addColorStop(0,"#ec4899"); nameGrad.addColorStop(1,"#f472b6");
+  ctx.save(); ctx.shadowColor=theme==="light"?"rgba(236,72,153,.10)":"rgba(0,0,0,.5)";
+  ctx.shadowBlur=14; ctx.shadowOffsetY=5; ctx.fillStyle=nameGrad; ctx.textAlign="center";
+  ctx.font="900 54px Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif";
+  ctx.fillText(CFG.name, cx, 122); ctx.restore();
+
+  ctx.textAlign="center";
+  ctx.fillStyle=theme==="light" ? "#0f172a" : "#ffffff";
+  ctx.font="900 28px Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif";
+  ctx.fillText(CFG.title, cx, 158);
+
+  ctx.fillStyle=theme==="light" ? "#334155" : "#e2e8f0";
+  ctx.font="800 20px Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif";
+  ctx.fillText(CFG.subtitle, cx, 186);
+
+  // pill skills (with left accent bar)
+  const startY=230, rowGap=40;
+  let fontSize=16, padX=14, h=32, gap=14;
+  function rowWidth(row){
+    ctx.font=`700 ${fontSize}px Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif`;
+    return row.reduce((a,t,i)=> a + (i?gap:0) + (ctx.measureText(t).width + padX*2), 0);
+  }
+  // ensure each row fits in usable area
+  let tries=0;
+  while (CFG.skillRows.some(r => rowWidth(r) > usableW) && tries<40){
+    fontSize -= 0.3; padX -= 0.15; h -= 0.15; gap -= 0.15; tries++;
+  }
+  ctx.textBaseline="middle";
+  CFG.skillRows.forEach((row,i)=>{
+    ctx.font=`700 ${fontSize}px Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif`;
+    const total=rowWidth(row);
+    let x=cx - total/2, y=startY + i*rowGap;
+
+    row.forEach(t=>{
+      const w=ctx.measureText(t).width + padX*2;
+      // pill
+      ctx.save();
+      ctx.shadowColor=theme==="light"?"rgba(0,0,0,.05)":"rgba(0,0,0,.6)";
+      ctx.shadowBlur=8; ctx.shadowOffsetY=3;
+      rrect(ctx,x,y-h/2,w,h,16);
+      const grad=ctx.createLinearGradient(x,y-h/2,x,y+h/2);
+      grad.addColorStop(0, theme==="light"?"#ffffff":"#2b1a24");
+      grad.addColorStop(1, theme==="light"?"#fff7fb":"#36202c");
+      ctx.fillStyle=grad; ctx.fill(); ctx.restore();
+
+      // left accent bar
+      ctx.fillStyle="#ec4899";
+      rrect(ctx, x+6, y-h/2+6, 3, h-12, 2); ctx.fill();
+
+      // label
+      ctx.fillStyle=theme==="light"?"#1e293b":"#f1f5f9";
+      ctx.textAlign="center"; ctx.fillText(t, x+w/2, y);
+
+      x += w + gap;
+    });
+  });
+
+  // preview mirror
+  pctx.clearRect(0,0,W,H); pctx.drawImage(c,0,0);
+}
+
+/*** UI HOOKS ***/
+document.getElementById('download').onclick=()=>{const a=document.createElement('a');a.download='linkedin-banner.png';a.href=c.toDataURL('image/png');a.click();};
+document.getElementById('theme').onclick=()=>{CFG.theme=CFG.theme==='light'?'dark':'light'; draw();};
+document.getElementById('safe').onchange=(e)=>{CFG.SAFE_LEFT=parseInt(e.target.value,10); draw();};
+document.getElementById('shift').onchange=(e)=>{CFG.SHIFT_LEFT=parseInt(e.target.value,10); draw();};
+
+['pat-waves','pat-diag','pat-dots','pat-hex','pat-bokeh'].forEach(id=>{
+  document.getElementById(id).onchange=(e)=>{
+    const key = { 'pat-waves':'waves','pat-diag':'diagonal','pat-dots':'dots','pat-hex':'hex','pat-bokeh':'bokeh' }[id];
+    CFG.patterns[key]=e.target.checked; draw();
+  };
+});
+
+document.fonts?.ready.then(()=>draw())||draw();
+</script>
+</body>
+</html>
