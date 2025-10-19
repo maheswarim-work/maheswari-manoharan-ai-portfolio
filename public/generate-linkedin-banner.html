@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate LinkedIn Banner</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        #preview {
+            background: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+        button {
+            background: #ec4899;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #db2777;
+        }
+        .info {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>LinkedIn Banner Generator</h1>
+    <p>Perfect dimensions for LinkedIn banner: 1584x396 pixels</p>
+
+    <canvas id="canvas" width="1584" height="396" style="display: none;"></canvas>
+    <div id="preview">
+        <canvas id="preview-canvas" width="1584" height="396" style="max-width: 100%; height: auto;"></canvas>
+    </div>
+    <button onclick="downloadImage()">Download LinkedIn Banner (1584x396)</button>
+
+    <div class="info">
+        <h2>Instructions:</h2>
+        <ol>
+            <li>Click "Download LinkedIn Banner" to save the image</li>
+            <li>Go to your LinkedIn profile</li>
+            <li>Click the camera icon on your background/banner area</li>
+            <li>Upload the downloaded image</li>
+            <li>Position it as needed and save</li>
+        </ol>
+
+        <h3>Dimensions:</h3>
+        <ul>
+            <li>Width: 1584 pixels</li>
+            <li>Height: 396 pixels</li>
+            <li>Aspect ratio: 4:1</li>
+        </ul>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const previewCanvas = document.getElementById('preview-canvas');
+        const previewCtx = previewCanvas.getContext('2d');
+
+        function drawBanner() {
+            // Clear canvas
+            ctx.clearRect(0, 0, 1584, 396);
+
+            // Background gradient - soft pink
+            const bgGradient = ctx.createLinearGradient(0, 0, 1584, 396);
+            bgGradient.addColorStop(0, '#ffeef8');
+            bgGradient.addColorStop(0.3, '#fff5f9');
+            bgGradient.addColorStop(0.7, '#fff0f7');
+            bgGradient.addColorStop(1, '#ffffff');
+            ctx.fillStyle = bgGradient;
+            ctx.fillRect(0, 0, 1584, 396);
+
+            // Decorative elements
+            ctx.save();
+
+            // Top left circle
+            const circle1 = ctx.createRadialGradient(150, 100, 0, 150, 100, 200);
+            circle1.addColorStop(0, 'rgba(244,114,182,0.12)');
+            circle1.addColorStop(1, 'rgba(244,114,182,0)');
+            ctx.fillStyle = circle1;
+            ctx.fillRect(0, 0, 400, 300);
+
+            // Bottom right circle
+            const circle2 = ctx.createRadialGradient(1400, 350, 0, 1400, 350, 250);
+            circle2.addColorStop(0, 'rgba(236,72,153,0.12)');
+            circle2.addColorStop(1, 'rgba(236,72,153,0)');
+            ctx.fillStyle = circle2;
+            ctx.fillRect(1150, 100, 500, 400);
+
+            ctx.restore();
+
+            // MM Logo circle in upper right
+            const logoX = 1350;
+            const logoY = 120;
+            const logoRadius = 70;
+
+            ctx.save();
+            const logoGradient = ctx.createLinearGradient(logoX - logoRadius, logoY - logoRadius, logoX + logoRadius, logoY + logoRadius);
+            logoGradient.addColorStop(0, '#f472b6');
+            logoGradient.addColorStop(1, '#ec4899');
+            ctx.fillStyle = logoGradient;
+            ctx.shadowColor = 'rgba(236,72,153,0.25)';
+            ctx.shadowBlur = 25;
+            ctx.shadowOffsetY = 8;
+            ctx.beginPath();
+            ctx.arc(logoX, logoY, logoRadius, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+
+            // MM text in logo
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 56px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('MM', logoX, logoY);
+
+            // Main content area (left side)
+            const contentX = 80;
+            const contentY = 120;
+
+            // Name with gradient
+            ctx.save();
+            const nameGradient = ctx.createLinearGradient(contentX, contentY, contentX + 600, contentY);
+            nameGradient.addColorStop(0, '#ec4899');
+            nameGradient.addColorStop(1, '#f472b6');
+            ctx.fillStyle = nameGradient;
+            ctx.font = '800 56px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText('Maheswari Manoharan', contentX, contentY);
+            ctx.restore();
+
+            // Title
+            ctx.fillStyle = '#1e293b';
+            ctx.font = '600 28px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.fillText('Software Engineering Professional', contentX, contentY + 50);
+
+            // Subtitle
+            ctx.fillStyle = '#475569';
+            ctx.font = '500 22px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.fillText('Specializing in AI-Powered Cloud Technologies', contentX, contentY + 85);
+
+            // Tech badges
+            const techs = ['AWS', 'Azure', 'Python', 'Java', 'AI/ML', 'Terraform'];
+            const badgeY = contentY + 135;
+            let badgeX = contentX;
+
+            techs.forEach((tech, index) => {
+                const badgeWidth = ctx.measureText(tech).width + 40;
+
+                // Badge background
+                ctx.fillStyle = 'rgba(236,72,153,0.08)';
+                ctx.strokeStyle = 'rgba(236,72,153,0.2)';
+                ctx.lineWidth = 1.5;
+                ctx.beginPath();
+                ctx.roundRect(badgeX, badgeY - 15, badgeWidth, 36, 18);
+                ctx.fill();
+                ctx.stroke();
+
+                // Badge text
+                ctx.fillStyle = '#ec4899';
+                ctx.font = '600 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(tech, badgeX + badgeWidth / 2, badgeY + 3);
+
+                badgeX += badgeWidth + 12;
+            });
+
+            // Bottom stats
+            const statsY = contentY + 195;
+
+            // Experience badge
+            ctx.fillStyle = 'rgba(236,72,153,0.12)';
+            ctx.beginPath();
+            ctx.arc(contentX + 25, statsY, 22, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = '#ec4899';
+            ctx.font = '700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('12+', contentX + 25, statsY);
+
+            ctx.fillStyle = '#1e293b';
+            ctx.font = '500 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText('Years Experience', contentX + 55, statsY);
+
+            // Certifications
+            const certX = contentX + 270;
+            ctx.fillStyle = 'rgba(236,72,153,0.12)';
+            ctx.beginPath();
+            ctx.arc(certX, statsY, 22, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = '#ec4899';
+            ctx.font = '700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('3', certX, statsY);
+
+            ctx.fillStyle = '#1e293b';
+            ctx.font = '500 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText('Certifications', certX + 30, statsY);
+
+            // Website URL in bottom right
+            const urlX = 1050;
+            const urlY = 320;
+
+            ctx.save();
+            ctx.fillStyle = 'white';
+            ctx.shadowColor = 'rgba(0,0,0,0.08)';
+            ctx.shadowBlur = 12;
+            ctx.shadowOffsetY = 3;
+            ctx.beginPath();
+            ctx.roundRect(urlX, urlY, 430, 50, 25);
+            ctx.fill();
+            ctx.restore();
+
+            // Green dot
+            ctx.fillStyle = '#10b981';
+            ctx.beginPath();
+            ctx.arc(urlX + 25, urlY + 25, 5, 0, Math.PI * 2);
+            ctx.fill();
+
+            // URL text
+            ctx.fillStyle = '#1e293b';
+            ctx.font = '600 22px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText('maheswari-manoharan.ai', urlX + 45, urlY + 30);
+        }
+
+        function updatePreview() {
+            previewCtx.drawImage(canvas, 0, 0);
+        }
+
+        // Draw the banner
+        drawBanner();
+        updatePreview();
+
+        function downloadImage() {
+            const link = document.createElement('a');
+            link.download = 'linkedin-banner.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+    </script>
+</body>
+</html>
