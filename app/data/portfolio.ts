@@ -136,8 +136,8 @@ export const portfolioData = {
     {
       name: "AWS Certified AI Practitioner",
       issuer: "Amazon Web Services",
-      issued: "December 2024",
-      expires: "",
+      issued: "December 2025",
+      expires: "December 2028",
       credentialId: "b672254c-de4b-4da9-89c3-daf75c2ffe2f",
       credentialUrl: "https://www.credly.com/badges/b672254c-de4b-4da9-89c3-daf75c2ffe2f"
     },
