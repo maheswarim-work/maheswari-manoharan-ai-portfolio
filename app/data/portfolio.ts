@@ -134,12 +134,20 @@ export const portfolioData = {
   ],
   certifications: [
     {
+      name: "AWS Certified AI Practitioner",
+      issuer: "Amazon Web Services",
+      issued: "December 2024",
+      expires: "",
+      credentialId: "b672254c-de4b-4da9-89c3-daf75c2ffe2f",
+      credentialUrl: "https://www.credly.com/badges/b672254c-de4b-4da9-89c3-daf75c2ffe2f"
+    },
+    {
       name: "Databricks Fundamentals",
       issuer: "Databricks",
       issued: "June 2025",
       expires: "June 2026",
-      credentialId: "",
-      credentialUrl: ""
+      credentialId: "4abc3d1b-e1cc-4afd-a138-afd6d76374f9",
+      credentialUrl: "https://credentials.databricks.com/4abc3d1b-e1cc-4afd-a138-afd6d76374f9#acc.XzxFho6d"
     },
     {
       name: "AWS Certified Developer – Associate",
@@ -150,7 +158,7 @@ export const portfolioData = {
       credentialUrl: "https://www.credly.com/badges/d2b25f31-a00a-4277-9fed-f2c9402cf812"
     },
     {
-      name: "HashiCorp Certified: Terraform Associate",
+      name: "HashiCorp Certified: Terraform Associate (002)",
       issuer: "HashiCorp",
       issued: "October 2021",
       expires: "October 2023",
