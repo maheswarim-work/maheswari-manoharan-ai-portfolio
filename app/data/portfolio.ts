@@ -29,7 +29,7 @@ export const portfolioData = {
   personal: {
     name: "Maheswari Manoharan",
     title: "Software Engineering Professional Specializing In Modern Cloud Technologies Powered With Artificial Intelligence",
-    location: "Atlanta Metropolitan Area",
+    location: "Greater Phoenix Area",
     summary: "I am a T-Shaped Software Engineer with hands-on experience in the Analysis, Design, Development, Testing, Deployment, and Support of enterprise applications. Passionate about leveraging innovative technologies.",
     email: "maheswarim.work@gmail.com",
     linkedin: "https://www.linkedin.com/in/maheswarimanoharan/",
