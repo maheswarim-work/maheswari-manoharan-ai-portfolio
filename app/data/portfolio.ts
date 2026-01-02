@@ -55,7 +55,7 @@ export const portfolioData = {
     },
     {
       company: "Cox Automotive (Manheim)",
-      position: "Lead Software Engineer - Shop Operations/Seal/Proton Team",
+      position: "Lead/Senior Software Engineer - Shop Operations/Seal/Proton Team",
       duration: "April 2022 - May 2025",
       highlights: [
         "Developed services in Python/AWS Serverless Application Model (SAM), deployed in AWS using AWS Code Pipeline/GitHub Actions with various AWS services like CloudFormation, Event Bridge, Lambda, S3, SNS, SQS, CloudWatch, Route53, DynamoDB, AWS Chatbot, Amazon OpenSearch, Batch, AWS Lambda Power tools",
