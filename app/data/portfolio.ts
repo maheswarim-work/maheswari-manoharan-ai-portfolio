@@ -44,13 +44,14 @@ export const portfolioData = {
       position: "Software Engineering Manager",
       duration: "June 2025 - Present",
       highlights: [
-        "Leading Implementation Engineering team in Strategic Analytics division, transforming complex data ecosystems into scalable, secure, high-performing services for commercial and specialty insurance (Surety with Moody's integration, Healthcare, Professional Liability - Cyber, Lawyers, PUA, Real Estate)",
-        "Delivering enterprise-grade APIs, predictive analytics models, and modern data platforms that empower enterprise-wide decision-making",
-        "Partnering with MLOps, Data Engineering, Feature Engineering, Data Science, and Data Visualization teams to align technical excellence with business outcomes",
-        "Overseeing project architecture and leading technical discussions to ensure alignment with business goals",
-        "Executing GitHub Actions-based CI/CD deployments across Python APIs, ModelServe services, Databricks workloads, Azure Data Factory pipelines, and database changes in Snowflake/Azure SQL",
-        "Managing distributed engineering team across U.S. and offshore time zones, driving consistency through daily standups, code reviews, and structured project ceremonies",
-        "Maintaining operational excellence through PR reviews, CAB approvals, Asana task tracking, and cross-functional delivery coordination"
+        "Lead the Implementation Engineering team within Strategic Analytics Services, delivering analytics platforms for commercial and specialty insurance (Surety with Moody's integration, Healthcare, Professional Liability-Cyber, Lawyers, PUA and Real Estate)",
+        "Architect and deliver Python-based, cloud-native analytics and API platforms on Azure, supporting predictive analytics models and data-driven systems",
+        "Enable production-grade MLOps, including model serving, real-time and batch data pipelines using Databricks, Azure Data Factory and Snowflake",
+        "Implement CI/CD pipelines and modern developer workflows using GitHub Actions and GitHub Copilot to improve quality, reliability, and deliver velocity",
+        "Serve as the execution and communication bridge between executive leadership and distributed engineering teams, driving compliant delivery, accountability, and alignment in a regulated insurance environment",
+        "Manage cross-functional delivery across Data Science, Data/Feature Engineering, Data Visualization, QA and Implementation Engineering teams through effective prioritization and relationship building",
+        "Lead and mentor an offshore engineering team, maintaining operational excellence through PR governance, CAB approvals, and controlled release processes",
+        "Partner with external vendors and third-party providers to align integrations, data exchanges, and delivery timelines with business, security and regulatory requirements"
       ]
     },
     {
