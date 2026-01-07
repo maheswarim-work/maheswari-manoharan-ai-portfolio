@@ -25,6 +25,13 @@ interface EducationData {
   description: string;
 }
 
+interface ProjectData {
+  name: string;
+  description: string;
+  github: string;
+  technologies: string[];
+}
+
 export const portfolioData = {
   personal: {
     name: "Maheswari Manoharan",
@@ -173,5 +180,42 @@ export const portfolioData = {
     data: ["Databricks", "Snowflake", "MySQL", "PostgreSQL", "Oracle", "SQL Server", "DynamoDB", "Aurora", "AS400/DB2", "CDC", "Azure Data Factory", "Azure SQL"],
     tools: ["Git", "Jenkins", "GitHub Actions", "Docker", "Maven", "pytest", "JUnit", "Selenium", "JMeter", "Cucumber", "Wire Mock", "Jasmine", "RSpec", "Capybara", "CloudWatch", "Datadog", "Splunk", "New Relic", "PagerDuty", "Aqua", "Veracode", "Code Guru", "Rally", "Asana", "Artifactory"],
     methodologies: ["Agile", "SAFe", "Kanban", "DevOps", "Microservices", "Event-Driven Architecture", "API Design", "MLOps", "Feature Engineering", "Data Engineering"]
+  },
+  featuredProjects: {
+    description: "Self-directed AI engineering initiatives translating applied use cases into scalable, production-grade system designs.",
+    tools: ["Cursor IDE", "Claude Code", "Bolt.new"],
+    technologies: ["AWS Bedrock", "AWS CloudFormation", "Python", "Next.js", "React Native", "GitHub Actions", "Cloudflare"],
+    highlights: [
+      "Designed and built end-to-end AI-driven applications as personal projects, applying modern LLM-based architectures, automation workflows, and AI-assisted development practices",
+      "Hands-on development across backend services, application logic, and user-facing components, focusing on practical, production-style AI use cases",
+      "Evaluated and integrated AI-first developer tooling to accelerate development velocity and improve code quality",
+      "Explored AI-enabled productivity patterns, including prompt engineering, agent-based workflows, and iterative design-to-code pipelines",
+      "Applied software engineering best practices (modular design, version control, deployment readiness) to AI projects to mirror real-world production environments"
+    ],
+    aiTools: [
+      { name: "Cursor IDE", description: "AI-assisted coding and refactoring" },
+      { name: "Claude Code", description: "Advanced reasoning, code generation, and architecture exploration" },
+      { name: "Bolt.new", description: "Rapid prototyping and full-stack application scaffolding" }
+    ],
+    projects: [
+      {
+        name: "MyPerson",
+        description: "AI-driven personal assistant application with LLM-based architecture",
+        github: "https://github.com/maheswarim-work/MyPerson",
+        technologies: ["AWS Bedrock", "Python", "AWS CloudFormation"]
+      },
+      {
+        name: "MyPerson Mobile",
+        description: "Mobile companion app for MyPerson with React Native",
+        github: "https://github.com/maheswarim-work/MyPerson-Mobile",
+        technologies: ["React Native", "AWS Bedrock"]
+      },
+      {
+        name: "AI Portfolio",
+        description: "Personal portfolio website built with AI-assisted development",
+        github: "https://github.com/maheswarim-work/maheswari-manoharan-ai-portfolio",
+        technologies: ["Next.js", "TypeScript", "GitHub Actions", "Cloudflare"]
+      }
+    ]
   }
 }
