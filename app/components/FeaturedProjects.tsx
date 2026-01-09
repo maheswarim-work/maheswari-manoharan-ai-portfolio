@@ -97,30 +97,32 @@ export default function FeaturedProjects() {
                 >
                   <div className="flex items-start justify-between mb-3">
                     <h4 className="text-lg font-semibold" style={{color: '#ec4899'}}>{project.name}</h4>
-                    <div className="flex gap-3">
-                      {project.website && (
-                        <a
-                          href={project.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="hover:opacity-70 transition-opacity"
-                          title="Visit Website"
-                        >
-                          <ExternalLink size={20} style={{color: '#f472b6'}} />
-                        </a>
-                      )}
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:opacity-70 transition-opacity"
-                        title="View on GitHub"
-                      >
-                        <Github size={20} style={{color: '#f472b6'}} />
-                      </a>
-                    </div>
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:opacity-70 transition-opacity"
+                      title="View on GitHub"
+                    >
+                      <Github size={20} style={{color: '#f472b6'}} />
+                    </a>
                   </div>
                   <p className="text-sm mb-4" style={{color: '#1E293B'}}>{project.description}</p>
+                  {project.website && (
+                    <a
+                      href={project.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 mb-4 rounded-full font-semibold text-sm transition-all hover:scale-105 hover:shadow-md"
+                      style={{
+                        background: 'linear-gradient(135deg, #ec4899 0%, #f472b6 100%)',
+                        color: '#FFFFFF'
+                      }}
+                    >
+                      <ExternalLink size={16} />
+                      Live Demo
+                    </a>
+                  )}
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, techIndex) => (
                       <span key={techIndex} className="px-2 py-1 text-xs rounded-full" style={{
