@@ -5,16 +5,77 @@ export default function FeaturedProjects() {
   const { featuredProjects } = portfolioData
 
   return (
-    <section id="projects" className="py-16">
+    <section id="ai-projects" className="py-16">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center mb-4" style={{color: '#ec4899'}}>
-          Featured Projects
+          Featured AI Projects
         </h2>
         <p className="text-center mb-12 max-w-3xl mx-auto" style={{color: '#374151'}}>
           {featuredProjects.description}
         </p>
 
         <div className="max-w-6xl mx-auto">
+          {/* Projects Grid - Now at the top */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-semibold mb-6 flex items-center" style={{color: '#374151'}}>
+              <Rocket className="mr-3" size={24} style={{color: '#f472b6'}} />
+              Projects
+            </h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              {featuredProjects.projects.map((project, index) => (
+                <div
+                  key={index}
+                  className="p-6 rounded-lg transition-all hover:shadow-lg"
+                  style={{
+                    background: '#FFFFFF',
+                    borderLeft: '3px solid #f472b6',
+                    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
+                  }}
+                >
+                  <div className="flex items-start justify-between mb-3">
+                    <h4 className="text-lg font-semibold" style={{color: '#ec4899'}}>{project.name}</h4>
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:opacity-70 transition-opacity"
+                      title="View on GitHub"
+                    >
+                      <Github size={20} style={{color: '#f472b6'}} />
+                    </a>
+                  </div>
+                  <p className="text-sm mb-4" style={{color: '#1E293B'}}>{project.description}</p>
+                  {project.website && (
+                    <a
+                      href={project.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 mb-4 rounded-full font-bold text-base transition-all hover:scale-110 hover:shadow-xl animate-pulse"
+                      style={{
+                        background: 'linear-gradient(135deg, #ec4899 0%, #be185d 100%)',
+                        color: '#FFFFFF',
+                        boxShadow: '0 4px 15px rgba(236, 72, 153, 0.4)'
+                      }}
+                    >
+                      <ExternalLink size={20} />
+                      Live Demo
+                    </a>
+                  )}
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech, techIndex) => (
+                      <span key={techIndex} className="px-2 py-1 text-xs rounded-full" style={{
+                        background: '#fce7f3',
+                        color: '#be185d'
+                      }}>
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* AI Tools Section */}
           <div className="mb-12">
             <h3 className="text-2xl font-semibold mb-6 flex items-center" style={{color: '#374151'}}>
@@ -76,66 +137,6 @@ export default function FeaturedProjects() {
                 </li>
               ))}
             </ul>
-          </div>
-
-          {/* Projects Grid */}
-          <div>
-            <h3 className="text-2xl font-semibold mb-6 flex items-center" style={{color: '#374151'}}>
-              <Rocket className="mr-3" size={24} style={{color: '#f472b6'}} />
-              Projects
-            </h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              {featuredProjects.projects.map((project, index) => (
-                <div
-                  key={index}
-                  className="p-6 rounded-lg transition-all hover:shadow-lg"
-                  style={{
-                    background: '#FFFFFF',
-                    borderLeft: '3px solid #f472b6',
-                    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
-                  }}
-                >
-                  <div className="flex items-start justify-between mb-3">
-                    <h4 className="text-lg font-semibold" style={{color: '#ec4899'}}>{project.name}</h4>
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:opacity-70 transition-opacity"
-                      title="View on GitHub"
-                    >
-                      <Github size={20} style={{color: '#f472b6'}} />
-                    </a>
-                  </div>
-                  <p className="text-sm mb-4" style={{color: '#1E293B'}}>{project.description}</p>
-                  {project.website && (
-                    <a
-                      href={project.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 mb-4 rounded-full font-semibold text-sm transition-all hover:scale-105 hover:shadow-md"
-                      style={{
-                        background: 'linear-gradient(135deg, #ec4899 0%, #f472b6 100%)',
-                        color: '#FFFFFF'
-                      }}
-                    >
-                      <ExternalLink size={16} />
-                      Live Demo
-                    </a>
-                  )}
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, techIndex) => (
-                      <span key={techIndex} className="px-2 py-1 text-xs rounded-full" style={{
-                        background: '#fce7f3',
-                        color: '#be185d'
-                      }}>
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>
