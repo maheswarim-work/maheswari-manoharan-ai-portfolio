@@ -1,5 +1,5 @@
 import { portfolioData } from '../data/portfolio'
-import { Rocket, Github, Wrench, Cpu, Sparkles } from 'lucide-react'
+import { Rocket, Github, Wrench, Cpu, Sparkles, ExternalLink } from 'lucide-react'
 
 export default function FeaturedProjects() {
   const { featuredProjects } = portfolioData
@@ -86,12 +86,9 @@ export default function FeaturedProjects() {
             </h3>
             <div className="grid md:grid-cols-3 gap-6">
               {featuredProjects.projects.map((project, index) => (
-                <a
+                <div
                   key={index}
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block p-6 rounded-lg transition-all hover:shadow-lg hover:-translate-y-1"
+                  className="p-6 rounded-lg transition-all hover:shadow-lg"
                   style={{
                     background: '#FFFFFF',
                     borderLeft: '3px solid #f472b6',
@@ -100,7 +97,28 @@ export default function FeaturedProjects() {
                 >
                   <div className="flex items-start justify-between mb-3">
                     <h4 className="text-lg font-semibold" style={{color: '#ec4899'}}>{project.name}</h4>
-                    <Github size={20} style={{color: '#f472b6'}} />
+                    <div className="flex gap-3">
+                      {project.website && (
+                        <a
+                          href={project.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:opacity-70 transition-opacity"
+                          title="Visit Website"
+                        >
+                          <ExternalLink size={20} style={{color: '#f472b6'}} />
+                        </a>
+                      )}
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:opacity-70 transition-opacity"
+                        title="View on GitHub"
+                      >
+                        <Github size={20} style={{color: '#f472b6'}} />
+                      </a>
+                    </div>
                   </div>
                   <p className="text-sm mb-4" style={{color: '#1E293B'}}>{project.description}</p>
                   <div className="flex flex-wrap gap-2">
@@ -113,7 +131,7 @@ export default function FeaturedProjects() {
                       </span>
                     ))}
                   </div>
-                </a>
+                </div>
               ))}
             </div>
           </div>

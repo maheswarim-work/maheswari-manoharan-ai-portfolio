@@ -29,6 +29,7 @@ interface ProjectData {
   name: string;
   description: string;
   github: string;
+  website?: string;
   technologies: string[];
 }
 
@@ -202,6 +203,7 @@ export const portfolioData = {
         name: "MyPerson",
         description: "AI-driven personal assistant application with LLM-based architecture",
         github: "https://github.com/maheswarim-work/MyPerson",
+        website: "https://my-person.ai/login",
         technologies: ["AWS Bedrock", "Python", "AWS CloudFormation"]
       },
       {
