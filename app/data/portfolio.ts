@@ -43,7 +43,6 @@ export const portfolioData = {
     linkedin: "https://www.linkedin.com/in/maheswarimanoharan/",
     github: "https://github.com/maheswarim-work",
     twitter: "https://x.com/MaheswariM2037",
-    phone: "(203) 428-7963",
     visaStatus: "Naturalized U.S. citizen (No visa sponsorship required)"
   },
   experience: [
