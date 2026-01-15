@@ -93,7 +93,7 @@ export default function About() {
               </div>
             </div>
 
-            {/* 12+ Years Experience */}
+            {/* 13+ Years Experience */}
             <div className="card" style={{
               background: '#FFFFFF',
               borderLeft: '3px solid #ec4899',
@@ -111,10 +111,10 @@ export default function About() {
                 </div>
                 <div className="flex-1">
                   <h3 className="mb-4" style={{color: '#ec4899', fontSize: '22px', fontWeight: '700'}}>
-                    12+ Years Experience
+                    13+ Years Experience
                   </h3>
                   <p style={{color: '#1E293B', lineHeight: '1.8', fontSize: '15px'}}>
-                    Strong computer science foundation with 12+ years leading teams and building enterprise software across insurance, automotive, and employment verification.
+                    Hands-on software engineer with end-to-end ownership of enterprise-scale platforms, APIs, and analytics systems in regulated environments, driving cloud-native and distributed architectures, influencing cross-team technical direction, and mentoring engineers to deliver reliable, business-critical solutions.
                   </p>
                 </div>
               </div>

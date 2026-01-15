@@ -11,14 +11,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Maheswari Manoharan - Software Engineering Professional",
-  description: "AI-Driven Engineering Portfolio. Software Engineering Professional with 12+ years building scalable cloud solutions across insurance, automotive, and employment verification. Built with Cursor AI, Claude Code, Next.js, and AWS.",
+  description: "AI-Driven Engineering Portfolio. Software Engineering Professional with 13+ years building scalable cloud solutions across insurance, automotive, and employment verification. Built with Cursor AI, Claude Code, Next.js, and AWS.",
   keywords: "Maheswari Manoharan, Software Engineering Manager, Cloud Architecture, AWS, Azure, Python, Java, Microservices, AI-Powered Development, Cursor AI, Claude Code",
   authors: [{ name: "Maheswari Manoharan" }],
   manifest: '/manifest.json',
   themeColor: '#ec4899',
   openGraph: {
     title: "Maheswari Manoharan — AI-Driven Engineering Portfolio",
-    description: "Software Engineering Professional with 12+ years building scalable cloud solutions. Built with Cursor AI, Claude Code, Next.js, AWS, and GitHub Actions.",
+    description: "Software Engineering Professional with 13+ years building scalable cloud solutions. Built with Cursor AI, Claude Code, Next.js, AWS, and GitHub Actions.",
     type: "website",
     url: "https://maheswari-manoharan.ai",
     siteName: "Maheswari Manoharan",
