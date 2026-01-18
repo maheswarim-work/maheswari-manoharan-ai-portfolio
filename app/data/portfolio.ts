@@ -216,6 +216,12 @@ export const portfolioData = {
         description: "Personal portfolio website built with AI-assisted development",
         github: "https://github.com/maheswarim-work/maheswari-manoharan-ai-portfolio",
         technologies: ["Next.js", "TypeScript", "GitHub Actions", "Cloudflare"]
+      },
+      {
+        name: "FocusHelper",
+        description: "Specification-Driven Development using Claude Code with GitHub Spec-Kit Workflow (Specify → Clarify → Plan → Tasks → Implement → Analyze)",
+        github: "https://github.com/maheswarim-work/FocusHelper",
+        technologies: ["Claude Code", "React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui"]
       }
     ]
   }
